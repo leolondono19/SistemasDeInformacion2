@@ -1,0 +1,416 @@
+/* home.css */
+
+/* General */
+/* Asegurarse de que el body y el html cubran toda la altura de la pantalla */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom,
+        #00BFFF 0%,      /* Celeste intenso (Deep Sky Blue) */
+        #1E90FF 10%,     /* Celeste más claro (Dodger Blue) */
+        #87CEFA 20%,     /* Celeste claro (Light Sky Blue) */
+        #ADD8E6 30%,     /* Celeste medio (Light Blue) */
+        #57b8c5e0 40%,     /* Celeste suave (Powder Blue) */
+        #3dbeea 50%,     /* Celeste muy claro (Light Steel Blue) */
+        #96bfe9 60%,     /* Celeste suave y claro */
+        #92afe7 90%,     /* Celeste muy claro (Azure) */
+        #83a6e8 100%     /* Blanco */
+    );
+    background-attachment: fixed;
+}
+
+
+.header{
+    background-image: url(https://www.fragrancex.com/blog/wp-content/uploads/2022/10/Signature-Scent-for-Vampire-Diaries-Characters.png);
+    background-size: cover;
+    background-position: center;
+    height: 550px;
+    display: flex;
+    align-items: flex-end;
+}
+/*Carrusel de imagenes al inicio*/
+/* Estilos generales para el carrusel */
+.carousel {
+    width: 100%;
+    height: 600px; /* Ajusta la altura del carrusel según tus necesidades */
+    overflow: hidden;
+}
+
+.carousel-inner {
+    height: 100%; /* Asegúrate de que el contenedor interior del carrusel ocupe toda la altura */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene las imágenes proporcionadas mientras llenan el contenedor */
+    object-position: center; /* Centra la imagen dentro del contenedor */
+}
+
+.carousel-fade .carousel-item {
+    transition: opacity 1s ease-in-out; /* Añade una transición suave entre imágenes */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Añade un fondo semitransparente a los íconos de navegación */
+    border-radius: 50%;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Oscurece los íconos al pasar el mouse */
+}
+
+/*RECONOCIMIENTOS*/
+/* Estilos para los iconos y textos */
+.recognition-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    opacity: 0; /* Oculta los elementos inicialmente */
+    transform: translateX(-50px); /* Posiciona los elementos fuera de la pantalla */
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.icono-mediano {
+    font-size: 2rem;
+    margin-right: 10px;
+}
+
+/* Efecto de entrada para la primera fila */
+.row-anim:nth-of-type(1) .recognition-item {
+    animation: slideInLeft 0.6s forwards; /* Animación de entrada desde la izquierda */
+}
+
+.row-anim:nth-of-type(2) .recognition-item {
+    animation: slideInRight 0.6s forwards; /* Animación de entrada desde la derecha */
+}
+
+.row-anim:nth-of-type(3) .recognition-item {
+    animation: slideInLeft 0.6s forwards; /* Animación de entrada desde la izquierda */
+}
+
+/* Definición de las animaciones */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+/* Estilos para la galería de imágenes */
+.gallery {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten a la siguiente línea si es necesario */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    gap: 1rem; /* Espacio entre las tarjetas */
+    margin-top: 2rem; /* Espacio superior para separar de otros contenidos */
+}
+
+.gallery .card {
+    position: relative;
+    width: 7.5rem; /* Ajuste del ancho de las tarjetas de la galería */
+    height: 10rem; /* Ajuste de la altura de las tarjetas de la galería */
+    background: var(--background-card); /* Usar la variable de color de fondo de las tarjetas */
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease-in-out; /* Mejorar la transición */
+}
+
+.gallery .card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.25rem;
+}
+
+.gallery .card:not(:first-child) {
+    margin-left: 3rem;
+}
+
+.gallery .card:hover {
+    transform: translateY(-1rem);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.gallery .card:hover ~ .card {
+    left: 2rem;
+}
+
+.navbar {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: white; /* Color de la marca */
+    padding: 10px 15px;
+}
+
+.navbar-nav .nav-link {
+    color: white; /* Color de los enlaces */
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff; /* Color de los enlaces en hover */
+    text-decoration: underline; /* Opcional: subrayado en hover */
+}
+
+.cart-icon {
+    font-size: 1.5rem;
+    margin-left: auto;
+    margin-right: 15px;
+}
+
+#main-content {
+    margin-top: 20px;
+}
+
+/* Ajuste de las cards para un tamaño uniforme */
+.card {
+    min-height: 400px; /* Establece una altura mínima */
+    background-color: #8b8ea8c7;
+    border: 1.5px solid rgb(0, 0, 0); /* Cambia el grosor del borde */
+    border-radius: 25px;
+    border-top-left-radius: 25px;
+    border-end-start-radius: 25px;
+}
+
+.card-img-top {
+    height: 200px;
+    border: #000;
+    object-fit: cover;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white; /* Cambiar el color del texto a claro */
+}
+.card-text{
+    color: white;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.contact-form {
+    margin-bottom: 30px;
+}
+
+.contact-form h3 {
+    margin-bottom: 15px;
+}
+
+.contact-form form {
+    margin-top: 15px;
+}
+
+/* Estilos para la paginación */
+.pagination .page-item .page-link {
+    color: #191a1b; /* Color de los números de paginación */
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #707c8a;
+    border-color: #4f565d;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #545b61;
+    pointer-events: none;
+}
+
+/* Estilos para las redes sociales en la sección de contacto */
+#contactos .btn-primary {
+    background-color: #0056b3;
+    border: none;
+    margin: 5px;
+}
+
+#contactos .btn-primary:hover {
+    background-color: #004085;
+}
+/* Estilos adicionales para el formulario de contacto */
+.contact-form input, .contact-form textarea {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+}
+
+.contact-form button {
+    background-color: #007bff;
+    border: none;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+/*Seccion Contacto*/
+/* Estilos generales para la sección de contacto */
+#contactos {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    border-radius: 8px;
+}
+
+h2, h3 {
+    color: #333;
+    font-weight: bold;
+}
+
+.contact-form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustes para los campos de texto */
+.input-square {
+    border-radius: 8px; /* Cambia el radio del borde para que sea más cuadrado */
+    padding: 10px;
+    font-size: 16px;
+    height: 45px; /* Ajusta la altura para que sea más compacto */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera para los inputs */
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+.input-square:focus {
+    border-color: #007bff; /* Color de borde cuando se selecciona el campo */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Brillo en el foco */
+}
+
+/* Estilos personalizados para el botón */
+.btn-custom {
+    border-radius: 8px; /* Bordes ligeramente redondeados */
+    padding: 10px 20px;
+    font-size: 16px;
+    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3); /* Sombra del botón */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-custom:hover {
+    transform: translateY(-3px); /* Efecto de levantamiento al pasar el mouse */
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4); /* Sombra más pronunciada */
+}
+
+/* Estilos para los botones de redes sociales */
+.social-buttons .btn-custom {
+    margin: 0 10px;
+    width: 120px;
+    background-color: #007bff; /* Color de fondo azul para las redes */
+    color: #fff;
+}
+
+.social-buttons .btn-custom:hover {
+    background-color: #0056b3; /* Color más oscuro en hover */
+}
+
+/*Carrusel Marcas*/
+/*Carrusel Marcas*/
+#carousel-marcas {
+    background-color: #f9f9f9;
+    padding: 30px 0;
+    overflow: hidden;
+}
+
+.marcas-carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.marcas-carousel-track {
+    display: flex;
+    transition: transform 0.5s linear;
+    will-change: transform;
+}
+
+.marcas-carousel-item {
+    flex: 0 0 auto;
+    width: 150px;
+    height: 100px;
+    margin: 0 10px;
+}
+
+.marcas-carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+
+/* Ajuste de mapa */
+#map iframe {
+    border-radius: 10px;
+}
+
+
+/* Estilos para ajustar el mapa */
+#map {
+    margin-top: 20px;
+    border: 3px solid #007bff; /* Borde del mapa */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+footer {
+    background-color: #f8f9fa;
+}
+
+footer a {
+    margin: 0 10px;
+    color: #333;
+}
+
+footer a:hover {
+    color: #007bff;
+}

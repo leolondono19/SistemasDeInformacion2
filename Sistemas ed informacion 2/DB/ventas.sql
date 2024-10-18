@@ -312,6 +312,32 @@ ALTER TABLE `venta_detalle`
   ADD CONSTRAINT `venta_detalle_ibfk_3` FOREIGN KEY (`venta_codigo`) REFERENCES `venta` (`venta_codigo`);
 COMMIT;
 
+-- Tablas pedidos
+CREATE TABLE pedido (
+    pedido_id INT(11) NOT NULL AUTO_INCREMENT,
+    codigo_pedido VARCHAR(100) NOT NULL,
+    fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+    nombre_cliente VARCHAR(100) DEFAULT NULL,
+    correo_cliente VARCHAR(100) DEFAULT NULL,
+    celular_cliente VARCHAR(20) DEFAULT NULL,
+    estado ENUM('pendiente', 'comprobado', 'completado') DEFAULT 'pendiente',
+    PRIMARY KEY (pedido_id),
+    UNIQUE KEY codigo_pedido (codigo_pedido)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
+
+-- Tabla detalle pedido
+CREATE TABLE detalle_pedido (
+    detalle_id INT(11) NOT NULL AUTO_INCREMENT,
+    codigo_pedido VARCHAR(100) NOT NULL,
+    cantidad INT(11) NOT NULL,
+    producto_nombre VARCHAR(100) DEFAULT NULL,
+    precio DECIMAL(10,2) DEFAULT NULL,
+    fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (detalle_id),
+    KEY codigo_pedido (codigo_pedido),
+    CONSTRAINT fk_codigo_pedido FOREIGN KEY (codigo_pedido) REFERENCES pedido(codigo_pedido)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

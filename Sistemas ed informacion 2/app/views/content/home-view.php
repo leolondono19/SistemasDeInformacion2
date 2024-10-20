@@ -9,14 +9,14 @@
     <!-- Header -->
     <header class="header">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#">UCB FRAGANCIAS</a>
+            <a class="navbar-brand" href="#">FARMACORP</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="#nosotros">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#perfumes">Perfumes</a>
+                        <a class="nav-link" href="#perfumes">Productos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contactos">Contáctanos</a>

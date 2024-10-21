@@ -9,14 +9,14 @@
     <!-- Header -->
     <header class="header">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#">UCB FRAGANCIAS</a>
+            <a class="navbar-brand" href="#">FARMACORP</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="#nosotros">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#perfumes">Perfumes</a>
+                        <a class="nav-link" href="#perfumes">Productos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contactos">Contáctanos</a>
@@ -231,12 +231,12 @@
             <h2>Nuestras Marcas</h2>
             <div class="marcas-carousel-container">
                 <div class="marcas-carousel-track">
-                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca1.jpeg" alt="Marca 1"></div>
-                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca2.jpeg" alt="Marca 2"></div>
-                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca3.jpeg" alt="Marca 3"></div>
-                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca4.jpeg" alt="Marca 4"></div>
-                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca5.jpg" alt="Marca 5"></div>
-                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca6.png" alt="Marca 6"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca1.jpg" alt="Mamá y Bebé"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca2.png" alt="Cuidado Personal"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca3.jpeg" alt="Salus y Medicamentos"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca4.jpeg" alt="Accesorios de cuidado"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca5.jpg" alt="Cuidado del Hogar"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca6.jpg" alt="Supermercado"></div>
                 </div>
             </div>
         </section>
@@ -292,27 +292,27 @@
             </div>
             <div class="card">
                 <figure>
-                    <img src="app/views/img/galeria/3.jpeg" alt="3">
+                    <img src="app/views/img/galeria/3.png" alt="3">
                 </figure>
             </div>
             <div class="card">
                 <figure>
-                    <img src="app/views/img/galeria/4.jpeg" alt="4">
+                    <img src="app/views/img/galeria/4.jpg" alt="4">
                 </figure>
             </div>
             <div class="card">
                 <figure>
-                    <img src="app/views/img/galeria/5.jpeg" alt="5">
+                    <img src="app/views/img/galeria/5.jpg" alt="5">
                 </figure>
             </div>
             <div class="card">
                 <figure>
-                    <img src="app/views/img/galeria/8.jpeg" alt="6">
+                    <img src="app/views/img/galeria/8.jpg" alt="6">
                 </figure>
             </div>
             <div class="card">
                 <figure>
-                    <img src="app/views/img/galeria/9.jpeg" alt="9">
+                    <img src="app/views/img/galeria/9.jpg" alt="9">
                 </figure>
             </div>
         </div>
@@ -324,27 +324,27 @@
             </div>
             <div class="card">
                 <figure>
-                    <img src="app/views/img/galeria/11.jpeg" alt="11">
+                    <img src="app/views/img/galeria/11.jpg" alt="11">
                 </figure>
             </div>
             <div class="card">
                 <figure>
-                    <img src="app/views/img/galeria/12.jpeg" alt="12">
+                    <img src="app/views/img/galeria/12.jpg" alt="12">
                 </figure>
             </div>
             <div class="card">
                 <figure>
-                    <img src="app/views/img/galeria/13.jpeg" alt="13">
+                    <img src="app/views/img/galeria/13.jpg" alt="13">
                 </figure>
             </div>
             <div class="card">
                 <figure>
-                    <img src="app/views/img/galeria/14.jpeg" alt="14">
+                    <img src="app/views/img/galeria/14.jpg" alt="14">
                 </figure>
             </div>
             <div class="card">
                 <figure>
-                    <img src="app/views/img/galeria/15.jpeg" alt="15">
+                    <img src="app/views/img/galeria/15.jpg" alt="15">
                 </figure>
             </div>
         </div>

@@ -221,7 +221,7 @@
                     <h3 class="mt-5">Encuéntranos en el Mapa</h3>
                     <div id="map">
                        
-                        <iframe src="https://www.google.com/maps/embed?..." width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7650.030727985804!2d-68.11568413849413!3d-16.525321980397827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915f20ef054c7ddf%3A0xe207033312ada9e5!2sFarmacorp!5e0!3m2!1ses!2sbo!4v1729478201614!5m2!1ses!2sbo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <h3 class="mt-5">Redes Sociales</h3>
                     <div class="social-buttons">
@@ -309,7 +309,7 @@
     <!-- Footer -->
     <footer class="bg-light text-center py-3">
         <div class="container">
-            <p>&copy; 2024 UCB FRAGANCIAS. Todos los derechos reservados.</p>
+            <p>&copy; 2024 FARMACORP. Todos los derechos reservados.</p>
             <a href="#"><i class="fab fa-facebook"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>

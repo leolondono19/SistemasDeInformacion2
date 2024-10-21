@@ -114,52 +114,7 @@
             </div>
         </div>
           
-        <h1>RECONOCIMIENTOS PROPIOS</h1>
-       
-        <section id="reconocimientos" class="container my-5">
-            <div class="row row-anim">
-                <div class="col-md-4 recognition-item">
-                    <i class="icono-mediano fas fa-trophy"></i>
-                    <p>Premio a la Innovación 2024</p>
-                </div>
-                <div class="col-md-4 recognition-item">
-                    <i class="icono-mediano fas fa-star"></i>
-                    <p>Premio de Excelencia en Servicio al Cliente</p>
-                </div>
-                <div class="col-md-4 recognition-item">
-                    <i class="icono-mediano fas fa-medal"></i>
-                    <p>Premio a la Mejor Nueva Marca</p>
-                </div>
-            </div>
-            <div class="row row-anim">
-                <div class="col-md-4 recognition-item">
-                    <i class="icono-mediano fas fa-certificate"></i>
-                    <p>Certificación de Calidad Oro</p>
-                </div>
-                <div class="col-md-4 recognition-item">
-                    <i class="icono-mediano fas fa-award"></i>
-                    <p>Premio al Emprendedor del Año</p>
-                </div>
-                <div class="col-md-4 recognition-item">
-                    <i class="icono-mediano fas fa-cup"></i>
-                    <p>Reconocimiento a la Responsabilidad Social Empresarial</p>
-                </div>
-            </div>
-            <div class="row row-anim">
-                <div class="col-md-4 recognition-item">
-                    <i class="icono-mediano fas fa-shield-alt"></i>
-                    <p>Premio a la Innovación Tecnológica</p>
-                </div>
-                <div class="col-md-4 recognition-item">
-                    <i class="icono-mediano fas fa-badge"></i>
-                    <p>Premio al Impacto Ambiental Positivo</p>
-                </div>
-                <div class="col-md-4 recognition-item">
-                    <i class="icono-mediano fas fa-star-half-alt"></i>
-                    <p>Premio a la Mejor Campaña de Marketing</p>
-                </div>
-            </div>
-        </section>
+        
 
         <h1>NUESTROS PRODUCTOS</h1>
 

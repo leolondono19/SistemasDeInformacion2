@@ -22,7 +22,7 @@ html, body {
 
 
 .header{
-    background-image: url(../img/1.jpeg);
+    background-image: url(../fotos/FARMACORP.jpg);
     background-size: cover;
     background-position: center;
     height: 550px;
@@ -378,6 +378,9 @@ h2, h3 {
     width: 150px;
     height: 100px;
     margin: 0 10px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 .marcas-carousel-item img {

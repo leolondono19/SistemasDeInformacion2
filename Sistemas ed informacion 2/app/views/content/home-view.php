@@ -114,52 +114,7 @@
             </div>
         </div>
           
-        <h1>RECONOCIMIENTOS PROPIOS</h1>
-       
-        <section id="reconocimientos" class="container my-5">
-            <div class="row row-anim">
-                <div class="col-md-4 recognition-item">
-                    <i class="icono-mediano fas fa-trophy"></i>
-                    <p>Premio a la Innovación 2024</p>
-                </div>
-                <div class="col-md-4 recognition-item">
-                    <i class="icono-mediano fas fa-star"></i>
-                    <p>Premio de Excelencia en Servicio al Cliente</p>
-                </div>
-                <div class="col-md-4 recognition-item">
-                    <i class="icono-mediano fas fa-medal"></i>
-                    <p>Premio a la Mejor Nueva Marca</p>
-                </div>
-            </div>
-            <div class="row row-anim">
-                <div class="col-md-4 recognition-item">
-                    <i class="icono-mediano fas fa-certificate"></i>
-                    <p>Certificación de Calidad Oro</p>
-                </div>
-                <div class="col-md-4 recognition-item">
-                    <i class="icono-mediano fas fa-award"></i>
-                    <p>Premio al Emprendedor del Año</p>
-                </div>
-                <div class="col-md-4 recognition-item">
-                    <i class="icono-mediano fas fa-cup"></i>
-                    <p>Reconocimiento a la Responsabilidad Social Empresarial</p>
-                </div>
-            </div>
-            <div class="row row-anim">
-                <div class="col-md-4 recognition-item">
-                    <i class="icono-mediano fas fa-shield-alt"></i>
-                    <p>Premio a la Innovación Tecnológica</p>
-                </div>
-                <div class="col-md-4 recognition-item">
-                    <i class="icono-mediano fas fa-badge"></i>
-                    <p>Premio al Impacto Ambiental Positivo</p>
-                </div>
-                <div class="col-md-4 recognition-item">
-                    <i class="icono-mediano fas fa-star-half-alt"></i>
-                    <p>Premio a la Mejor Campaña de Marketing</p>
-                </div>
-            </div>
-        </section>
+        
 
         <h1>NUESTROS PRODUCTOS</h1>
 
@@ -266,7 +221,7 @@
                     <h3 class="mt-5">Encuéntranos en el Mapa</h3>
                     <div id="map">
                        
-                        <iframe src="https://www.google.com/maps/embed?..." width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7650.030727985804!2d-68.11568413849413!3d-16.525321980397827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915f20ef054c7ddf%3A0xe207033312ada9e5!2sFarmacorp!5e0!3m2!1ses!2sbo!4v1729478201614!5m2!1ses!2sbo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <h3 class="mt-5">Redes Sociales</h3>
                     <div class="social-buttons">
@@ -354,7 +309,7 @@
     <!-- Footer -->
     <footer class="bg-light text-center py-3">
         <div class="container">
-            <p>&copy; 2024 UCB FRAGANCIAS. Todos los derechos reservados.</p>
+            <p>&copy; 2024 FARMACORP. Todos los derechos reservados.</p>
             <a href="#"><i class="fab fa-facebook"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>

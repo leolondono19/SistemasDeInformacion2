@@ -186,16 +186,16 @@
             <h2>Nuestras Marcas</h2>
             <div class="marcas-carousel-container">
                 <div class="marcas-carousel-track">
-                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca1.jpg" alt="Mamá y Bebé"></div>
-                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca2.png" alt="Cuidado Personal"></div>
-                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca3.jpeg" alt="Salus y Medicamentos"></div>
+                <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca1.jpeg" alt="Mamá y Bebé"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca2.jpeg" alt="Cuidado Personal"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca3.jpeg" alt="Salud y Medicamentos"></div>
                     <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca4.jpeg" alt="Accesorios de cuidado"></div>
-                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca5.jpg" alt="Cuidado del Hogar"></div>
-                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca6.jpg" alt="Supermercado"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca5.png" alt="Cuidado del Hogar"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca6.jpeg" alt="Supermercado"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca7.jpg" alt="Laboratorio"></div>
                 </div>
             </div>
         </section>
-
         <section id="contactos" class="text-center mt-5">
             <h2>Contáctanos</h2>
             <div class="row justify-content-center">

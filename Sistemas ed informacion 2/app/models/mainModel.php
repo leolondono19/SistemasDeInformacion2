@@ -13,11 +13,12 @@
 		private $db=DB_NAME;
 		private $user=DB_USER;
 		private $pass=DB_PASS;
+		private $port = DB_PORT;
 
 
 		/*----------  Funcion conectar a BD  ----------*/
 		protected function conectar(){
-			$conexion = new PDO("mysql:host=".$this->server.";dbname=".$this->db,$this->user,$this->pass);
+			$conexion = new PDO("mysql:host=".$this->server.";dbname=".$this->db.";port=".$this->port, $this->user, $this->pass);
 			$conexion->exec("SET CHARACTER SET utf8");
 			return $conexion;
 		}

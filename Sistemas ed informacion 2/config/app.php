@@ -1,6 +1,6 @@
 <?php
 
-	const APP_URL="http://localhost/VENTAS/";
+	const APP_URL= "https://4393-181-188-168-100.ngrok-free.app/";
 	const APP_NAME="VENTAS";
 	const APP_SESSION_NAME="POS";
 

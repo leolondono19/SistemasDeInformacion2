@@ -225,10 +225,10 @@
                     </div>
                     <h3 class="mt-5">Redes Sociales</h3>
                     <div class="social-buttons">
-                        <a href="#" class="btn btn-primary btn-custom">Facebook</a>
-                        <a href="#" class="btn btn-primary btn-custom">Instagram</a>
-                        <a href="#" class="btn btn-primary btn-custom">Twitter</a>
-                        <a href="#" class="btn btn-primary btn-custom">YouTube</a>
+                        <a href="https://es-la.facebook.com/Farmacorp/" class="btn btn-primary btn-custom">Facebook</a>
+                        <a href="https://www.instagram.com/farmacorpsa/?hl=es-la" class="btn btn-primary btn-custom">Instagram</a>
+                        <a href="https://x.com/i/flow/login?redirect_after_login=%2Ffarmacorpsa" class="btn btn-primary btn-custom">Twitter</a>
+                        <a href="https://www.youtube.com/channel/UCOJ9GruTDv968_qfiGYe2Fg?view_as=subscriber" class="btn btn-primary btn-custom">YouTube</a>
                     </div>
                 </div>
             </div>
@@ -310,10 +310,10 @@
     <footer class="bg-light text-center py-3">
         <div class="container">
             <p>&copy; 2024 FARMACORP. Todos los derechos reservados.</p>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="https://es-la.facebook.com/Farmacorp/"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/farmacorpsa/?hl=es-la"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/i/flow/login?redirect_after_login=%2Ffarmacorpsa"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.youtube.com/channel/UCOJ9GruTDv968_qfiGYe2Fg?view_as=subscriber"><i class="fab fa-youtube"></i></a>
         </div>
     </footer>
 

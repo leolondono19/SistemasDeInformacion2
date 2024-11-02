@@ -307,7 +307,31 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-light text-center py-3">
+     <footer>
+        <div class = "ondas">
+            <div class = "onda" id = "onda1"></div>
+            <div class = "onda" id = "onda2"></div>
+            <div class = "onda" id = "onda3"></div>
+            <div class = "onda" id = "onda4"></div>
+        </div>
+        <ul class="rrss_icon">
+            <li><a href="https://es-la.facebook.com/Farmacorp/"><ion-icon name="logo-facebook"></ion-icon></a></li>
+            <li><a href="https://www.instagram.com/farmacorpsa/?hl=es-la"><ion-icon name="logo-instagram"></ion-icon></a></li>
+            <li><a href="https://x.com/i/flow/login?redirect_after_login=%2Ffarmacorpsa"><ion-icon name="logo-twitter"></ion-icon></a></li>
+            <li><a href="https://www.youtube.com/channel/UCOJ9GruTDv968_qfiGYe2Fg?view_as=subscriber"><ion-icon name="logo-youtube"></ion-icon></a></li>
+        </ul>
+        <ul class = "menu_footer">
+            <li><a href="">Nosotros</a></li>
+            <li><a href="">Productos</a></li>
+            <li><a href="">Contáctanos</a></li>
+            <li><a href="">Login</a></li>
+            <li><a href="">Carrito</a></li>
+        </ul>
+        <p>©2024 FARMACORP | Todos los Derechos Reservados</p>
+     </footer>
+     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- <footer class="bg-light text-center py-3">
         <div class="container">
             <p>&copy; 2024 FARMACORP. Todos los derechos reservados.</p>
             <a href="https://es-la.facebook.com/Farmacorp/"><i class="fab fa-facebook"></i></a>
@@ -315,7 +339,7 @@
             <a href="https://x.com/i/flow/login?redirect_after_login=%2Ffarmacorpsa"><i class="fab fa-twitter"></i></a>
             <a href="https://www.youtube.com/channel/UCOJ9GruTDv968_qfiGYe2Fg?view_as=subscriber"><i class="fab fa-youtube"></i></a>
         </div>
-    </footer>
+    </footer> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>

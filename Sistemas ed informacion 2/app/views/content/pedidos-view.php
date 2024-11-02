@@ -16,8 +16,8 @@ $pedidos = $pedidoController->obtenerPedidos();
                 <th>Correo</th>
                 <th>Celular</th>
                 <th>Fecha</th>
-                <th>Estado</th>
-                <th>Acciones</th>
+                <th>Estado</th> <!-- Cambiar el nombre de la columna Acciones a Estado -->
+                <th>Actualizar</th> <!-- Nueva columna para el botón de actualizar -->
             </tr>
         </thead>
         <tbody>
@@ -30,8 +30,18 @@ $pedidos = $pedidoController->obtenerPedidos();
                 echo '<td>' . $pedido['correo_cliente'] . '</td>';
                 echo '<td>' . $pedido['celular_cliente'] . '</td>';
                 echo '<td>' . $pedido['fecha'] . '</td>';
-                echo '<td>' . $pedido['estado'] . '</td>';
-                echo '<td><a href="?views=comprobar-pedido&codigo=' . $pedido['codigo_pedido'] . '" class="btn btn-primary">Comprobar</a></td>';
+
+                // Columna Estado con el combo box para seleccionar el estado
+                echo '<td>';
+                echo '<select class="form-select" name="estado_' . $pedido['pedido_id'] . '">';
+                echo '<option value="pendiente"' . ($pedido['estado'] == 'pendiente' ? ' selected' : '') . '>Pendiente</option>';
+                echo '<option value="comprobado"' . ($pedido['estado'] == 'comprobado' ? ' selected' : '') . '>Comprobado</option>';
+                echo '<option value="completado"' . ($pedido['estado'] == 'completado' ? ' selected' : '') . '>Completado</option>';
+                echo '</select>';
+                echo '</td>';
+
+                // Columna Actualizar con el botón de actualización
+                echo '<td><button class="btn btn-success"><i class="fas fa-sync-alt"></i></button></td>';
                 echo '</tr>';
             }
             ?>

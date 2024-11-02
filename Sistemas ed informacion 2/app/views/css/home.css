@@ -6,18 +6,22 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom,
-        #00BFFF 0%,      /* Celeste intenso (Deep Sky Blue) */
-        #1E90FF 10%,     /* Celeste más claro (Dodger Blue) */
-        #87CEFA 20%,     /* Celeste claro (Light Sky Blue) */
-        #ADD8E6 30%,     /* Celeste medio (Light Blue) */
-        #57b8c5e0 40%,     /* Celeste suave (Powder Blue) */
-        #3dbeea 50%,     /* Celeste muy claro (Light Steel Blue) */
-        #96bfe9 60%,     /* Celeste suave y claro */
-        #92afe7 90%,     /* Celeste muy claro (Azure) */
-        #83a6e8 100%     /* Blanco */
-    );
-    background-attachment: fixed;
+    background-image: url(../fotos/Fondo.jpg);
+    background-size: cover;
+    background-position: center;  
+    
+    /*linear-gradient(to bottom,*/
+        /*#00BFFF 0%,       Celeste intenso (Deep Sky Blue) */
+        /*#1E90FF 10%,     Celeste más claro (Dodger Blue) */
+        /*#87CEFA 20%,      Celeste claro (Light Sky Blue) */
+        /*#ADD8E6 30%,     /* Celeste medio (Light Blue) */
+        /*#57b8c5e0 40%,     /* Celeste suave (Powder Blue) */
+        /*#3dbeea 50%,     /* Celeste muy claro (Light Steel Blue) */
+        /*#96bfe9 60%,     /* Celeste suave y claro */
+        /*#92afe7 90%,     /* Celeste muy claro (Azure) */
+        /*#C9D5FD 100%     /* Blanco */
+    /*);
+    background-attachment: fixed;*/
 }
 
 
@@ -33,8 +37,9 @@ html, body {
 /* Estilos generales para el carrusel */
 .carousel {
     width: 100%;
-    height: 600px; /* Ajusta la altura del carrusel según tus necesidades */
+    height: 450px; /* Ajusta la altura del carrusel según tus necesidades */
     overflow: hidden;
+    align-items: center;
 }
 
 .carousel-inner {
@@ -70,7 +75,7 @@ html, body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     background: #f8f9fa;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -137,9 +142,10 @@ html, body {
     height: 10rem; /* Ajuste de la altura de las tarjetas de la galería */
     background: var(--background-card); /* Usar la variable de color de fondo de las tarjetas */
     border-radius: 0.5rem;
+    /*border: none;*/
     overflow: hidden;
     box-shadow: 0 5px 12px rgba(0,0,0,0.5);
-    transition: transform 0.3s ease-in-out; /* Mejorar la transición */
+    transition: transition 0.3s ease-in-out; /* Mejorar la transición */
 }
 
 .gallery .card img {
@@ -207,8 +213,8 @@ html, body {
 /* Ajuste de las cards para un tamaño uniforme */
 .card {
     min-height: 400px; /* Establece una altura mínima */
-    background-color: #8b8ea8c7;
-    border: 1.5px solid rgb(0, 0, 0); /* Cambia el grosor del borde */
+    background-color: #D9D9D9;
+    border: 5px solid rgb(80, 97, 197); /* Cambia el grosor del borde */
     border-radius: 25px;
     border-top-left-radius: 25px;
     border-end-start-radius: 25px;
@@ -264,108 +270,22 @@ html, body {
 }
 
 .pagination .page-item.active .page-link {
-    background-color: #707c8a;
-    border-color: #4f565d;
+    background-color: #F0EFEA;
+    border-color: #F0EFEA;
 }
 
 .pagination .page-item.disabled .page-link {
-    color: #545b61;
+    color: #F0EFEA;
     pointer-events: none;
 }
 
-/* Estilos para las redes sociales en la sección de contacto */
-#contactos .btn-primary {
-    background-color: #0056b3;
-    border: none;
-    margin: 5px;
-}
 
-#contactos .btn-primary:hover {
-    background-color: #004085;
-}
-/* Estilos adicionales para el formulario de contacto */
-.contact-form input, .contact-form textarea {
-    border-radius: 8px;
-    border: 1px solid #ced4da;
-}
-
-.contact-form button {
-    background-color: #007bff;
-    border: none;
-}
-
-.contact-form button:hover {
-    background-color: #0056b3;
-}
-
-/*Seccion Contacto*/
-/* Estilos generales para la sección de contacto */
-#contactos {
-    background-color: #f9f9f9;
-    padding: 50px 0;
-    border-radius: 8px;
-}
-
-h2, h3 {
-    color: #333;
-    font-weight: bold;
-}
-
-.contact-form {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Ajustes para los campos de texto */
-.input-square {
-    border-radius: 8px; /* Cambia el radio del borde para que sea más cuadrado */
-    padding: 10px;
-    font-size: 16px;
-    height: 45px; /* Ajusta la altura para que sea más compacto */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera para los inputs */
-    border: 1px solid #ccc;
-    transition: border-color 0.3s ease;
-}
-
-.input-square:focus {
-    border-color: #007bff; /* Color de borde cuando se selecciona el campo */
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Brillo en el foco */
-}
-
-/* Estilos personalizados para el botón */
-.btn-custom {
-    border-radius: 8px; /* Bordes ligeramente redondeados */
-    padding: 10px 20px;
-    font-size: 16px;
-    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3); /* Sombra del botón */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.btn-custom:hover {
-    transform: translateY(-3px); /* Efecto de levantamiento al pasar el mouse */
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4); /* Sombra más pronunciada */
-}
-
-/* Estilos para los botones de redes sociales */
-.social-buttons .btn-custom {
-    margin: 0 10px;
-    width: 120px;
-    background-color: #007bff; /* Color de fondo azul para las redes */
-    color: #fff;
-}
-
-.social-buttons .btn-custom:hover {
-    background-color: #0056b3; /* Color más oscuro en hover */
-}
 
 /*Carrusel Marcas*/
 /*Carrusel Marcas*/
 #carousel-marcas {
-    background-color: #f9f9f9;
-    padding: 30px 0;
+    background-color: #f8f9fa;
+    padding: 20px 0;
     overflow: hidden;
 }
 
@@ -398,6 +318,278 @@ h2, h3 {
     display: block;
 }
 
+/*imagenes de informacion*/
+.info-section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    
+    align-items: center;
+    padding: 40px;
+  }
+
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 40px;
+    }
+/* Ajusta el espaciado entre columnas 
+.column:not(:last-child) {
+    margin-right: 10px;
+}*/
+  .info-item {
+    flex:1;
+    width: 18%;
+    margin: 0 10px; /* Añade algo de espacio alrededor de cada item */
+    min-width: 150px; /* Asegura que no se colapsen en pantallas pequeñas */
+    text-align: center;
+  }
+  .info-item img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .info-item h3 {
+    font-size: 16px;
+    margin: 10px 0 5px;
+    font-weight: bold;
+  }
+  .info-item p {
+    font-size: 14px;
+    color: #666;
+  }
+
+
+/*promocion 7porciento*/
+.promo-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    height: inherit;
+    /*max-width: 900px; /* Limita el ancho total */
+    margin: 0 auto; /* Centra el contenedor */
+    box-sizing: border-box;
+  }
+
+  .promo-left {
+    width: 50%;
+    /*background-image: url("./app/views/fotos/desc.png"); /* Cambia esto a la ruta de tu imagen */
+    
+    border-radius: 10px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f8f9fa;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .promo-right {
+    width: 45%;
+    padding-left: 20px;
+  }
+
+  .promo-right h2 {
+    color: #3D853C;
+    font-size: 40px;
+    margin: 0;
+  }
+
+  .promo-right p {
+    color: #333;
+    font-size: 25px;
+    margin: 10px 0;
+  }
+
+  .promo-right a {
+    color: #271B7F;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .promo-right a:hover {
+    text-decoration: underline;
+  }
+
+  .promo-right a::after {
+    content: '→';
+    margin-left: 5px;
+  }
+
+
+/* Estilos personalizados para el botón */
+.btn-custom {
+    border-radius: 8px; /* Bordes ligeramente redondeados */
+    padding: 10px 20px;
+    font-size: 16px;
+    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3); /* Sombra del botón */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-custom:hover {
+    transform: translateY(-3px); /* Efecto de levantamiento al pasar el mouse */
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4); /* Sombra más pronunciada */
+}
+
+/* Estilos para las redes sociales en la sección de contacto */
+#contactos .btn-primary {
+    background-color: #0056b3;
+    border: none;
+    margin: 5px;
+}
+
+#contactos .btn-primary:hover {
+    background-color: #004085;
+}
+/* Estilos adicionales para el formulario de contacto */
+.contact-form input, .contact-form textarea {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+}
+
+/*.contact-form button {
+    background-color: #007bff;
+    border: none;
+}*/
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+
+  
+
+/*Seccion Contacto*/
+/* Estilos generales para la sección de contacto */
+#contactos {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    border-radius: 8px;
+}
+
+h2, h3 {
+    color: #333;
+    font-weight: bold;
+}
+
+.contact-form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustes para los campos de texto */
+.input-square {
+    border-radius: 8px; /* Cambia el radio del borde para que sea más cuadrado */
+    padding: 10px;
+    font-size: 16px;
+    height: 45px; /* Ajusta la altura para que sea más compacto */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera para los inputs */
+    border: 4px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+.input-square:focus {
+    border-color: #5061C5; /* Color de borde cuando se selecciona el campo */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Brillo en el foco */
+}
+
+/* Estilos personalizados para el botón */
+.btn-custom {
+    border-radius: 8px; /* Bordes ligeramente redondeados */
+    padding: 10px 20px;
+    font-size: 16px;
+    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3); /* Sombra del botón */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-custom:hover {
+    transform: translateY(-3px); /* Efecto de levantamiento al pasar el mouse */
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4); /* Sombra más pronunciada */
+}
+
+.social-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9; 
+    border: none;
+  }
+
+  .social-buttons {
+    display: flex;
+    gap: 20px;
+    border: none;
+  }
+
+  .social-buttons a {
+    padding: 15px 30px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    display: inline-block; /* Asegura que se comporte como botón */
+    border: 2px solid transparent; /* Borde inicial */
+    transition: background-color 0.3s, border-color 0.3s; /* Transiciones */
+  }
+
+  .btn-facebook {
+    background-color: #271B7F;
+  }
+
+  .btn-instagram {
+    background-color: #5061C5;
+  }
+
+  .btn-twitter {
+    background-color: #F3D408;
+  }
+
+  .btn-youtube {
+    background-color: #3D853C;
+  }
+
+  /* Efecto de hover para cambiar ligeramente el tono y agregar borde */
+  .btn-facebook:hover {
+    background-color: #2d4373;
+    border-color: #3b5998;
+  }
+
+  .btn-twitter:hover {
+    background-color: #dfee12;
+    border-color: #dfee12;
+  }
+
+  .btn-instagram:hover {
+    background-color: #1991db;
+    border-color: #1da1f2;
+  }
+
+  .btn-youtube:hover {
+    background-color: #198b02;
+    border-color: #198b02;
+  }
+
 
 /* Ajuste de mapa */
 #map iframe {
@@ -408,8 +600,8 @@ h2, h3 {
 /* Estilos para ajustar el mapa */
 #map {
     margin-top: 20px;
-    border: 3px solid #007bff; /* Borde del mapa */
-    border-radius: 10px;
+    border: 3px solid #5061C5; /* Borde del mapa */
+    border-radius: 8px;
     overflow: hidden;
 }
 

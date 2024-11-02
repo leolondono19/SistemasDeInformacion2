@@ -84,23 +84,29 @@
     </div>
 
     <div id="main-content" class="container mt-5 pt-5">
-        <h1>Bienvenido a nuestra tienda de perfumes</h1>
-        <p>¡Explora nuestra amplia gama de perfumes y encuentra tu fragancia perfecta!</p>
+        <h1>Bienvenido a Farmacorp</h1>
+        <p>¡Compra lo que necesites las 24 horas del día!</p>
 
-        <h2 id="nosotros">Nuestra tienda y trabajadores</h2>
+        <h2 id="nosotros">Nuestra tienda, trabajadores y lo más importante nuestros clientes</h2>
 
         <div class="my-4 px-3 py-3 bg-light rounded">
 
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="./app/views/img/sliders/1.jpg" class="d-block w-100" alt="Imagen 1">
+                        <img src="./app/views/img/sliders/vista.jpg" class="d-block w-100" alt="Imagen 1">
                     </div>
                     <div class="carousel-item">
-                        <img src="./app/views/img/sliders/2.jpg" class="d-block w-100" alt="Imagen 2">
+                        <img src="./app/views/img/sliders/dentro.jpg" class="d-block w-100" alt="Imagen 2">
                     </div>
                     <div class="carousel-item">
-                        <img src="./app/views/img/sliders/3.jpg" class="d-block w-100" alt="Imagen 3">
+                        <img src="./app/views/img/sliders/dentro2.jpg" class="d-block w-100" alt="Imagen 3">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./app/views/img/sliders/atc.jpg" class="d-block w-100" alt="Imagen 3">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./app/views/img/sliders/clientes.jpg" class="d-block w-100" alt="Imagen 3">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -114,9 +120,19 @@
             </div>
         </div>
           
-        
+        <!--Seccion de descuento-->
+        <section class="promo-section">
+            <div class="promo-left">
+            <img src="./app/views/fotos/desc.png" alt="Imagen adaptable">
+            </div>
+            <div class="promo-right">
+                <h2>Descuentos en Farmacorp</h2>
+                <p>¡Llegó el momento de ahorrar!</p>
+                <a href="#">Regístrate</a>
+            </div>
+        </section>
 
-        <h1>NUESTROS PRODUCTOS</h1>
+        <h1>Nuestros Productos</h1>
 
         <!-- Sección de productos -->
         <div class="row" id="perfumes">
@@ -186,53 +202,100 @@
             <h2>Nuestras Marcas</h2>
             <div class="marcas-carousel-container">
                 <div class="marcas-carousel-track">
-                <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca1.jpeg" alt="Mamá y Bebé"></div>
-                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca2.jpeg" alt="Cuidado Personal"></div>
-                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca3.jpeg" alt="Salud y Medicamentos"></div>
+                <div class="marcas-carousel-item"><img src="./app/views/img/marcas/3m.png" alt="3m"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/bago.png" alt="Bago"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/bayer.png" alt="Salud y Medicamentos"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/Coca.png" alt="Bebidas"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/gnc.png" alt="Cuidado del Hogar"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/huggies.png" alt="Supermercado"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/Inti.png" alt="Laboratorio"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/lasante.png" alt="Cuidado Personal"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca1.jpeg" alt="Salud y Medicamentos"></div>
                     <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca4.jpeg" alt="Accesorios de cuidado"></div>
-                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca5.png" alt="Cuidado del Hogar"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca2.jpeg" alt="Cuidado del Hogar"></div>
                     <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca6.jpeg" alt="Supermercado"></div>
-                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/marca7.jpg" alt="Laboratorio"></div>
+                    <div class="marcas-carousel-item"><img src="./app/views/img/marcas/scott.png" alt="Laboratorio"></div>
                 </div>
             </div>
+
+
+
+        <!-- Imagenes de informacion-->
+        </section id="informacion-imagenes" class="text-center mt-5">
+            <div class="row">
+                <div class="info-item">
+                    <img src="./app/views/img/iconos/documento.png" alt="Icono Cambios">
+                    <h3>Cambios y devoluciones</h3>
+                    <p>Revisa Términos y condiciones y Política de privacidad.</p>
+                </div>
+                <div class="info-item">
+                    <img src="./app/views/img/iconos/card.png" alt="Icono Pago">
+                    <h3>Formas de Pago</h3>
+                    <p>Distintas opciones de pago con total seguridad.</p>
+                </div>
+                <div class="info-item">
+                    <img src="./app/views/img/iconos/certificado.png" alt="Icono Compra Segura">
+                    <h3>Compra 100% segura</h3>
+                    <p>Tus compras están totalmente protegidas.</p>
+                </div>
+                <div class="info-item">
+                    <img src="./app/views/img/iconos/conversacion.png" alt="Icono Centros de Ayuda">
+                    <h3>Centros de ayuda</h3>
+                    <p>Contáctanos vía WhatsApp 55 2595 1595.</p>
+                </div>
+                <div class="info-item">
+                    <img src="./app/views/img/iconos/factura.png" alt="Icono Facturación Electrónica">
+                    <h3>Facturación Electrónica</h3>
+                    <p>Obtén tu factura electrónica de manera rápida y confiable.</p>
+                </div>
+            </div>
+      <section>
+
+
+        
+
         </section>
+
         <section id="contactos" class="text-center mt-5">
-            <h2>Contáctanos</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="contact-form">
-                        <h3>Formulario de Contacto</h3>
-                        <form action="contact_form_handler.php" method="post">
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Nombre</label>
-                                <input type="text" class="form-control input-square" id="name" name="name" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Correo Electrónico</label>
-                                <input type="email" class="form-control input-square" id="email" name="email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Mensaje</label>
-                                <textarea class="form-control input-square" id="message" name="message" rows="4" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-custom">Enviar</button>
-                        </form>
-                    </div>
-                    <h3 class="mt-5">Encuéntranos en el Mapa</h3>
-                    <div id="map">
-                       
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7650.030727985804!2d-68.11568413849413!3d-16.525321980397827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915f20ef054c7ddf%3A0xe207033312ada9e5!2sFarmacorp!5e0!3m2!1ses!2sbo!4v1729478201614!5m2!1ses!2sbo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                    <h3 class="mt-5">Redes Sociales</h3>
-                    <div class="social-buttons">
-                        <a href="https://es-la.facebook.com/Farmacorp/" class="btn btn-primary btn-custom">Facebook</a>
-                        <a href="https://www.instagram.com/farmacorpsa/?hl=es-la" class="btn btn-primary btn-custom">Instagram</a>
-                        <a href="https://x.com/i/flow/login?redirect_after_login=%2Ffarmacorpsa" class="btn btn-primary btn-custom">Twitter</a>
-                        <a href="https://www.youtube.com/channel/UCOJ9GruTDv968_qfiGYe2Fg?view_as=subscriber" class="btn btn-primary btn-custom">YouTube</a>
-                    </div>
-                </div>
+  <h2>Contáctanos</h2>
+  <div class="container">
+    <div class="row mt-4">
+      <!-- Columna izquierda: Formulario de contacto -->
+      <div class="col-md-6">
+        <div class="contact-form">
+          <h3>Formulario de Contacto</h3>
+          <form action="contact_form_handler.php" method="post">
+            <div class="mb-3">
+              <label for="name" class="form-label">Nombre</label>
+              <input type="text" class="form-control input-square" id="name" name="name" required>
             </div>
-        </section>
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control input-square" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Mensaje</label>
+              <textarea class="form-control input-square" id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-custom">Enviar</button>
+          </form>
+        </div>
+      </div>
+      
+      <!-- Columna derecha: Mapa -->
+      <div class="col-md-6">
+        <h3>Encuéntranos en el Mapa</h3>
+        <div id="map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7650.030727985804!2d-68.11568413849413!3d-16.525321980397827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915f20ef054c7ddf%3A0xe207033312ada9e5!2sFarmacorp!5e0!3m2!1ses!2sbo!4v1729478201614!5m2!1ses!2sbo" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+
+    </div>
+    </div>
+  </div>
+</section>  
+
 
         <div class="gallery">
             <div class="card">

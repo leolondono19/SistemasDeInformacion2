@@ -97,10 +97,10 @@ class PedidoController extends mainModel{
         $url = APP_URL . $this->limpiarCadena($url) . "/";
         $busqueda = $this->limpiarCadena($busqueda);
         $tabla = "";
-    
+
         $pagina = (isset($pagina) && $pagina > 0) ? (int) $pagina : 1;
         $inicio = ($pagina > 0) ? (($pagina * $registros) - $registros) : 0;
-    
+
         if ($busqueda != "") {
             $consulta_datos = "SELECT * FROM pedido WHERE nombre_cliente LIKE '%$busqueda%' ORDER BY fecha DESC LIMIT $inicio, $registros";
             $consulta_total = "SELECT COUNT(pedido_id) FROM pedido WHERE nombre_cliente LIKE '%$busqueda%'";
@@ -108,12 +108,12 @@ class PedidoController extends mainModel{
             $consulta_datos = "SELECT * FROM pedido ORDER BY fecha DESC LIMIT $inicio, $registros";
             $consulta_total = "SELECT COUNT(pedido_id) FROM pedido";
         }
-    
+
         $datos = $this->ejecutarConsulta($consulta_datos);
         $datos = $datos->fetchAll();
         $total = $this->ejecutarConsulta($consulta_total)->fetchColumn();
         $numeroPaginas = ceil($total / $registros);
-    
+
         $tabla .= '
             <div class="table-container">
             <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
@@ -122,19 +122,19 @@ class PedidoController extends mainModel{
                         <th class="has-text-centered">Pedido ID</th>
                         <th class="has-text-centered">Código Pedido</th>
                         <th class="has-text-centered">Fecha</th>
-                        <th class="has-text-centered">Cliente</th>
-                        <th class="has-text-centered">Correo</th>
-                        <th class="has-text-centered">Celular</th>
+                        <th class="has-text-centered">Nombre Cliente</th>
+                        <th class="has-text-centered">Correo Cliente</th>
+                        <th class="has-text-centered">Celular Cliente</th>
                         <th class="has-text-centered">Estado</th>
                         <th class="has-text-centered">Método Pago</th>
-                        <th class="has-text-centered">NIT</th>
-                        <th class="has-text-centered">Actualizar</th>
+                        <th class="has-text-centered">Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
         ';
-    
+
         if ($total >= 1 && $pagina <= $numeroPaginas) {
+            $contador = $inicio + 1;
             foreach ($datos as $rows) {
                 $tabla .= '
                     <tr class="has-text-centered">
@@ -144,32 +144,147 @@ class PedidoController extends mainModel{
                         <td>' . $rows['nombre_cliente'] . '</td>
                         <td>' . $rows['correo_cliente'] . '</td>
                         <td>' . $rows['celular_cliente'] . '</td>
+
+                        <!-- Columna de Estado con el formulario para actualizar -->
                         <td>
-                            <div class="select is-small">
-                                <select name="estado_' . $rows['pedido_id'] . '">
-                                    <option value="pendiente"' . ($rows['estado'] == 'pendiente' ? ' selected' : '') . '>Pendiente</option>
-                                    <option value="comprobado"' . ($rows['estado'] == 'comprobado' ? ' selected' : '') . '>Comprobado</option>
-                                    <option value="completado"' . ($rows['estado'] == 'completado' ? ' selected' : '') . '>Completado</option>
-                                </select>
-                            </div>
+                            <form class="FormularioAjax" action="' . APP_URL . 'app/ajax/pedidoAjax.php" method="POST" autocomplete="off">
+                                <input type="hidden" name="modulo_pedido" value="actualizar">
+                                <input type="hidden" name="pedido_id" value="' . $rows['pedido_id'] . '">
+                                <div class="select is-small">
+                                    <select name="estado" required>
+                                        <option value="pendiente"' . ($rows['estado'] == 'pendiente' ? ' selected' : '') . '>Pendiente</option>
+                                        <option value="comprobado"' . ($rows['estado'] == 'comprobado' ? ' selected' : '') . '>Comprobado</option>
+                                        <option value="completado"' . ($rows['estado'] == 'completado' ? ' selected' : '') . '>Completado</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="button is-info is-small" title="Actualizar Estado">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                            </form>
                         </td>
+
+                        <!-- Columna de Método Pago -->
                         <td>' . $rows['metodo_pago'] . '</td>
-                        <td>' . $rows['nit'] . '</td>
+
+                        <!-- Columna de Eliminar -->
                         <td>
-                            <button class="button is-info is-small">
-                                <i class="fas fa-sync-alt"></i>
-                            </button>
+                            <form class="FormularioAjax" action="' . APP_URL . 'app/ajax/pedidoAjax.php" method="POST" autocomplete="off">
+                                <input type="hidden" name="modulo_pedido" value="eliminar">
+                                <input type="hidden" name="pedido_id" value="' . $rows['pedido_id'] . '">
+                                <button type="submit" class="button is-danger is-small" title="Eliminar Pedido">
+                                    <i class="far fa-trash-alt fa-fw"></i>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 ';
+                $contador++;
             }
         } else {
-            $tabla .= '<tr class="has-text-centered"><td colspan="10">No hay pedidos registrados</td></tr>';
+            $tabla .= '<tr class="has-text-centered"><td colspan="11">No hay pedidos registrados</td></tr>';
         }
-    
+
         $tabla .= '</tbody></table></div>';
-        
+
+        ### Paginacion ###
+        if ($total > 0 && $pagina <= $numeroPaginas) {
+            $tabla .= '<p class="has-text-right">Mostrando pedidos del <strong>' . ($inicio + 1) . '</strong> al <strong>' . ($contador - 1) . '</strong> de un total de <strong>' . $total . '</strong></p>';
+            $tabla .= $this->paginadorTablas($pagina, $numeroPaginas, $url, 7);
+        }
+
         return $tabla;
     }
+
+
+    /*----------  Controlador actualizar estado del pedido  ----------*/
+    public function actualizarPedidoControlador(){
+        // Verificar que se hayan enviado los datos necesarios
+        if(!isset($_POST['pedido_id']) || !isset($_POST['estado'])){
+            $alerta = [
+                "tipo" => "simple",
+                "titulo" => "Error",
+                "texto" => "Datos incompletos para actualizar el pedido.",
+                "icono" => "error"
+            ];
+            return json_encode($alerta);
+            exit();
+        }
+
+        # Almacenando datos
+        $pedido_id = $this->limpiarCadena($_POST['pedido_id']);
+        $estado = $this->limpiarCadena($_POST['estado']);
+
+        # Verificar que el pedido exista
+        $datos = $this->ejecutarConsulta("SELECT * FROM pedido WHERE pedido_id='$pedido_id'");
+        if($datos->rowCount() <= 0){
+            $alerta = [
+                "tipo" => "simple",
+                "titulo" => "Error",
+                "texto" => "No se encontró el pedido en el sistema.",
+                "icono" => "error"
+            ];
+            return json_encode($alerta);
+            exit();
+        } else {
+            $datos = $datos->fetch();
+        }
+
+        # Validar que el estado sea uno de los permitidos
+        $estados_permitidos = ['pendiente', 'comprobado', 'completado'];
+        if(!in_array($estado, $estados_permitidos)){
+            $alerta = [
+                "tipo" => "simple",
+                "titulo" => "Error",
+                "texto" => "El estado seleccionado no es válido.",
+                "icono" => "error"
+            ];
+            return json_encode($alerta);
+            exit();
+        }
+
+        # Actualizar el estado del pedido
+        $pedido_datos_up = [
+            [
+                "campo_nombre" => "estado",
+                "campo_marcador" => ":Estado",
+                "campo_valor" => $estado
+            ]
+        ];
+
+        $condicion = [
+            "condicion_campo" => "pedido_id",
+            "condicion_marcador" => ":ID",
+            "condicion_valor" => $pedido_id
+        ];
+
+        if($this->actualizarDatos("pedido", $pedido_datos_up, $condicion)){
+            $alerta = [
+                "tipo" => "recargar",
+                "titulo" => "Pedido Actualizado",
+                "texto" => "El estado del pedido ha sido actualizado correctamente.",
+                "icono" => "success"
+            ];
+        } else {
+            $alerta = [
+                "tipo" => "simple",
+                "titulo" => "Error",
+                "texto" => "No se pudo actualizar el estado del pedido. Por favor, intente nuevamente.",
+                "icono" => "error"
+            ];
+        }
+
+        return json_encode($alerta);
+    }
+
+    /*----------  Controlador eliminar pedido  ----------*/
+    public function eliminarPedidoControlador(){
+        // ... (método existente o ajustado según necesidades)
+    }
+
+    /*----------  Función para obtener el último ID insertado  ----------*/
+    protected function ultimoIdInsertado(){
+        return $this->conectar()->lastInsertId();
+    }
+
 }
 ?>

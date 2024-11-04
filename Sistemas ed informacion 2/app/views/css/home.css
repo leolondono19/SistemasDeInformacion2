@@ -213,7 +213,7 @@ html, body {
 /* Ajuste de las cards para un tamaño uniforme */
 .card {
     min-height: 400px; /* Establece una altura mínima */
-    background-color: #D9D9D9;
+    background-color: #BFB6DC;
     border: 5px solid rgb(80, 97, 197); /* Cambia el grosor del borde */
     border-radius: 25px;
     border-top-left-radius: 25px;

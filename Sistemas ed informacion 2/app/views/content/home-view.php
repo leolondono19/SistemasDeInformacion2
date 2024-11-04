@@ -119,7 +119,23 @@
                 </button>
             </div>
         </div>
-          
+        
+                <!-- Sección de Visión y Misión -->
+                <section class="vision-mision-section">
+            <div class="card">
+                <div class="card-content">
+                    <h3>Visión</h3>
+                    <p>“Ser reconocidos globalmente como un modelo de éxito que contribuye al bienestar diario de las personas con el mejor servicio al cliente”.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Misión</h3>
+                    <p>“Somos FarmaCorp, Un equipo de colaboradores comprometidos y altamente profesionales que apoyados en innovación constante y tecnología avanzada trabajamos unidos generando experiencias memorables que ayudan a las familias a llevar una vida feliz y saludable”.</p>
+                </div>
+            </div>
+        </section>
+
         <!--Seccion de descuento-->
         <section class="promo-section">
             <div class="promo-left">
@@ -180,6 +196,32 @@
             <?php endif; ?>
         </div>
     </div>
+
+    <!-- Paginación -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <?php if ($pagina > 1): ?>
+                <li class="page-item">
+                    <a class="page-link" href="?pagina=<?= $pagina - 1 ?>" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            <?php endif; ?>
+            <?php for ($i = 1; $i <= $totalPaginas; $i++): ?>
+                <li class="page-item <?= $i == $pagina ? 'active' : '' ?>">
+                    <a class="page-link" href="?pagina=<?= $i ?>"><?= $i ?></a>
+                </li>
+            <?php endfor; ?>
+            <?php if ($pagina < $totalPaginas): ?>
+                <li class="page-item">
+                    <a class="page-link" href="?pagina=<?= $pagina + 1 ?>" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            <?php endif; ?>
+        </ul>
+    </nav>
+</div>
 
         <nav aria-label="Página de navegación">
             <ul class="pagination justify-content-center">
@@ -370,14 +412,39 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-light text-center py-3">
-        <div class="social-buttons mt-4">
-            <a href="#" class="btn btn-primary btn-facebook">Facebook</a>
-            <a href="#" class="btn btn-primary btn-custom">Instagram</a>
-            <a href="#" class="btn btn-primary btn-custom">Twitter</a>
-            <a href="#" class="btn btn-primary btn-custom">YouTube</a>
+     <footer>
+        <div class = "ondas">
+            <div class = "onda" id = "onda1"></div>
+            <div class = "onda" id = "onda2"></div>
+            <div class = "onda" id = "onda3"></div>
+            <div class = "onda" id = "onda4"></div>
         </div>
-    </footer>
+        <ul class="rrss_icon">
+            <li><a href="https://es-la.facebook.com/Farmacorp/"><ion-icon name="logo-facebook"></ion-icon></a></li>
+            <li><a href="https://www.instagram.com/farmacorpsa/?hl=es-la"><ion-icon name="logo-instagram"></ion-icon></a></li>
+            <li><a href="https://x.com/i/flow/login?redirect_after_login=%2Ffarmacorpsa"><ion-icon name="logo-twitter"></ion-icon></a></li>
+            <li><a href="https://www.youtube.com/channel/UCOJ9GruTDv968_qfiGYe2Fg?view_as=subscriber"><ion-icon name="logo-youtube"></ion-icon></a></li>
+        </ul>
+        <ul class = "menu_footer">
+            <li><a href="">Nosotros</a></li>
+            <li><a href="">Productos</a></li>
+            <li><a href="">Contáctanos</a></li>
+            <li><a href="">Login</a></li>
+            <li><a href="">Carrito</a></li>
+        </ul>
+        <p>©2024 FARMACORP | Todos los Derechos Reservados</p>
+     </footer>
+     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- <footer class="bg-light text-center py-3">
+        <div class="container">
+            <p>&copy; 2024 FARMACORP. Todos los derechos reservados.</p>
+            <a href="https://es-la.facebook.com/Farmacorp/"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/farmacorpsa/?hl=es-la"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/i/flow/login?redirect_after_login=%2Ffarmacorpsa"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.youtube.com/channel/UCOJ9GruTDv968_qfiGYe2Fg?view_as=subscriber"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>

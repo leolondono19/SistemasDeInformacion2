@@ -26,10 +26,10 @@ html, body {
 
 
 .header{
-    background-image: url(../fotos/FARMACORP.jpg);
+    background-image: url(../fotos/FARMACORP.png);
     background-size: cover;
     background-position: center;
-    height: 550px;
+    height: 400px;
     display: flex;
     align-items: flex-end;
 }
@@ -181,18 +181,22 @@ html, body {
 
 .navbar-brand {
     font-weight: bold;
-    color: white; /* Color de la marca */
+    color:#00529b;
+    /*color: white;(ANTES) /* Color de la marca */
     padding: 10px 15px;
 }
 
 .navbar-nav .nav-link {
-    color: white; /* Color de los enlaces */
+    color:#ffd301;
+    /*color: white;(ANTES) /* Color de los enlaces */
     margin-right: 15px;
-    font-size: 20px;
+    font-size: 30px;
+    /*font-size: 20px;*/
 }
 
 .navbar-nav .nav-link:hover {
-    color: #5061C5; /* Color de los enlaces en hover */
+    color: #f6951d;
+    /*color: #007bff;(ANTES) /* Color de los enlaces en hover */
     text-decoration: underline; /* Opcional: subrayado en hover */
 }
 
@@ -235,15 +239,17 @@ html, body {
 }
 
 .btn-primary {
-    background-color: #5061C5;
-    border-color: #5061C5;
-    border-radius: 8px;
+    background-color: #01b2de;
+    border-color: #01b2de;
+    /*background-color: #007bff;
+    border-color: #007bff;*/
 }
 
 .btn-primary:hover {
-    background-color: #271B7F;
-    border-color: #271B7F;
-    border-radius: 8px;
+    background-color: #08c908;
+    border-color: #c97919;
+    /*background-color: #0056b3;
+    border-color: #004085;*/
 }
 
 .contact-form {
@@ -269,7 +275,7 @@ html, body {
 }
 
 .pagination .page-item.disabled .page-link {
-    color: #BFB6DC;
+    color: #F0EFEA;
     pointer-events: none;
 }
 
@@ -599,7 +605,7 @@ h2, h3 {
     overflow: hidden;
 }
 
-footer {
+/* footer {
     background-color: #f8f9fa;
 }
 
@@ -609,5 +615,143 @@ footer a {
 }
 
 footer a:hover {
-    color: #5061C5;
+    color: #007bff;
+} */
+
+
+/*NUEVO FOOTER*/
+footer{
+    position: relative;
+    width: 100%;
+    background: #01b2de;
+    min-height: 100px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+footer .rrss_icon, footer .menu_footer{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+footer .rrss_icon li, footer .menu_footer li{
+    list-style: none;
+}
+footer .rrss_icon li a{
+    font-size: 2em;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+footer .rrss_icon li a:hover{
+    transform: translate(-10px);
+
+}
+footer .menu_footer li a{
+    font-size: 1.2em;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+    text-decoration: none;
+    opacity: 0.75;
+}
+footer .menu_footer li a:hover{
+    opacity: 1;
+}
+footer p{
+    color: #fff;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+footer .onda{
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url(../fotos/WAVE.png);
+    background-size: 1000px 100px;
+}
+footer .onda#onda1{
+    z-index: 1000;
+    opacity: 1;
+    bottom: 0;
+    animation: animateWave 4s linear infinite;
+}
+footer .onda#onda2{
+    z-index: 999;
+    opacity: 0.5;
+    bottom: 10px;
+    animation: animateWave_02 4s linear infinite;
+}
+footer .onda#onda3{
+    z-index: 1000;
+    opacity: 0.2;
+    bottom: 15px;
+    animation: animateWave 3s linear infinite;
+}
+footer .onda#onda4{
+    z-index: 999;
+    opacity: 0.7;
+    bottom: 20px;
+    animation: animateWave_02 3s linear infinite;
+}
+.vision-mision-section {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 45%;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.card p {
+    font-size: 16px;
+    color: #555;
+}
+@keyframes animateWave{
+    0%{
+        background-position-x: 1000px;
+    }
+    100%{
+        background-position-x: 0px;
+    }
+}
+
+@keyframes animateWave_02{
+    0%{
+        background-position-x: 0px;
+    }
+    100%{
+        background-position-x: 1000px;
+    }
 }

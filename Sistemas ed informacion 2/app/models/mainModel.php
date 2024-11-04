@@ -93,6 +93,11 @@
 			return $sql;
 		}
 
+	    /*----------  Función para obtener el último ID insertado  ----------*/
+		protected function ultimoIdInsertado(){
+			return $this->conectar()->lastInsertId();
+		}	
+
 
 		/*---------- Funcion seleccionar datos ----------*/
         public function seleccionarDatos($tipo,$tabla,$campo,$id){

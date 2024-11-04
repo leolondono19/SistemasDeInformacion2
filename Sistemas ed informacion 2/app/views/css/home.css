@@ -710,7 +710,7 @@ footer .onda#onda4{
     margin: 20px 0;
 }
 
-.card {
+.card-vis-mis {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -719,22 +719,22 @@ footer .onda#onda4{
     width: 45%;
 }
 
-.card:hover {
+.card-vis-mis:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.card-content {
+.card-vis-mis-content {
     padding: 20px;
     text-align: center;
 }
 
-.card h3 {
+.card-vis-mis h3 {
     margin-bottom: 10px;
     font-size: 24px;
 }
 
-.card p {
+.card-vis-mis p {
     font-size: 16px;
     color: #555;
 }

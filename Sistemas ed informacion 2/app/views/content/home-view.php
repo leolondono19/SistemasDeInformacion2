@@ -122,13 +122,13 @@
         
                 <!-- Sección de Visión y Misión -->
                 <section class="vision-mision-section">
-            <div class="card">
+            <div class="card-vis-mis">
                 <div class="card-content">
                     <h3>Visión</h3>
                     <p>“Ser reconocidos globalmente como un modelo de éxito que contribuye al bienestar diario de las personas con el mejor servicio al cliente”.</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card-vis-mis">
                 <div class="card-content">
                     <h3>Misión</h3>
                     <p>“Somos FarmaCorp, Un equipo de colaboradores comprometidos y altamente profesionales que apoyados en innovación constante y tecnología avanzada trabajamos unidos generando experiencias memorables que ayudan a las familias a llevar una vida feliz y saludable”.</p>

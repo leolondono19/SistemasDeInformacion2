@@ -3,7 +3,8 @@
 <head>
     <?php require_once "./app/views/inc/head.php"; ?>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="app/views/css/home.css" rel="stylesheet"> 
+    <link href="app/views/css/home.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> 
 </head>
 <body>
     <!-- Header -->
@@ -73,6 +74,43 @@
                         <label for="celularCliente" class="form-label">Número de Celular</label>
                         <input type="text" class="form-control" id="celularCliente" required>
                     </div>
+                    <h5>Datos Factura</h5>
+                    <div class="mb-3">
+                        <label for="razonSocial" class="form-label">NOMBRE/RAZÓN SOCIAL</label>
+                        <input type="text" class="form-control" id="razonSocial" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nitCliente" class="form-label">NIT/CI/CEX</label>
+                        <input type="text" class="form-control" id="nitCliente" required>
+                    </div>
+                    <h5>Método de Pago</h5>
+                    <div class="mb-3">
+                        <label for="metodoPago" class="form-label">Selecciona el Método de Pago</label>
+                        <div id="metodoPago">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="metodoPago" id="tarjetaCredito" value="tarjetaCredito" required>
+                                <label class="form-check-label" for="tarjetaCredito">
+                                    <i class="fas fa-credit-card" style="font-size: 40px;"></i><br>
+                                    Tarjeta de Crédito
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="metodoPago" id="qrPago" value="qrPago">
+                                <label class="form-check-label" for="qrPago">
+                                    <i class="fas fa-qrcode" style="font-size: 40px;"></i><br>
+                                    QR
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="metodoPago" id="efectivo" value="efectivo">
+                                <label class="form-check-label" for="efectivo">
+                                    <i class="fas fa-money-bill-wave" style="font-size: 40px;"></i><br>
+                                    Efectivo
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -412,28 +450,30 @@
     </div>
 
     <!-- Footer -->
-     <footer>
-        <div class = "ondas">
-            <div class = "onda" id = "onda1"></div>
-            <div class = "onda" id = "onda2"></div>
-            <div class = "onda" id = "onda3"></div>
-            <div class = "onda" id = "onda4"></div>
-        </div>
-        <ul class="rrss_icon">
-            <li><a href="https://es-la.facebook.com/Farmacorp/"><ion-icon name="logo-facebook"></ion-icon></a></li>
-            <li><a href="https://www.instagram.com/farmacorpsa/?hl=es-la"><ion-icon name="logo-instagram"></ion-icon></a></li>
-            <li><a href="https://x.com/i/flow/login?redirect_after_login=%2Ffarmacorpsa"><ion-icon name="logo-twitter"></ion-icon></a></li>
-            <li><a href="https://www.youtube.com/channel/UCOJ9GruTDv968_qfiGYe2Fg?view_as=subscriber"><ion-icon name="logo-youtube"></ion-icon></a></li>
-        </ul>
-        <ul class = "menu_footer">
-            <li><a href="">Nosotros</a></li>
-            <li><a href="">Productos</a></li>
-            <li><a href="">Contáctanos</a></li>
-            <li><a href="">Login</a></li>
-            <li><a href="">Carrito</a></li>
-        </ul>
-        <p>©2024 FARMACORP | Todos los Derechos Reservados</p>
-     </footer>
+        <footer>
+            <div class = "ondas">
+                <div class = "onda" id = "onda1"></div>
+                <div class = "onda" id = "onda2"></div>
+                <div class = "onda" id = "onda3"></div>
+                <div class = "onda" id = "onda4"></div>
+            </div>
+            <ul class="rrss_icon">
+                <li><a href="https://es-la.facebook.com/Farmacorp/" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                <li><a href="https://www.instagram.com/farmacorpsa/?hl=es-la" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                <li><a href="https://x.com/i/flow/login?redirect_after_login=%2Ffarmacorpsa" target="_blank"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                <li><a href="https://www.youtube.com/channel/UCOJ9GruTDv968_qfiGYe2Fg?view_as=subscriber" target="_blank"><ion-icon name="logo-youtube"></ion-icon></a></li>
+            </ul>
+            <ul class = "menu_footer">
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#perfumes">Productos</a></li>
+                <li><a href="#contactos">Contáctanos</a></li>
+                <li><a href="?views=login">Login</a></li>
+                <li><a href="#" id="cart-icon" data-bs-toggle="modal" data-bs-target="#cartModal">
+                <i class="fas fa-shopping-cart"></i> Carrito (<span id="cart-count">0</span>)</a></li>
+            </ul>
+            <p>©2024 FARMACORP | Todos los Derechos Reservados</p>
+        </footer>
+     
      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!-- <footer class="bg-light text-center py-3">
@@ -503,10 +543,13 @@
                 const clienteInfo = {
                     nombre: document.querySelector('#nombreCliente').value,
                     correo: document.querySelector('#correoCliente').value,
-                    celular: document.querySelector('#celularCliente').value
+                    celular: document.querySelector('#celularCliente').value,
+                    razonSocial: document.querySelector('#razonSocial').value,
+                    nit: document.querySelector('#nitCliente').value,
+                    pago: document.querySelector('#metodoPago').value
                 };
 
-                if (!clienteInfo.nombre || !clienteInfo.correo || !clienteInfo.celular) {
+                if (!clienteInfo.nombre || !clienteInfo.correo || !clienteInfo.celular || !clienteInfo.razonSocial || !clienteInfo.nit || !clienteInfo.pago) {
                     alert("Por favor, rellena todos los campos de información del cliente.");
                     return;
                 }
@@ -543,6 +586,9 @@
                             document.querySelector('#nombreCliente').value = '';
                             document.querySelector('#correoCliente').value = '';
                             document.querySelector('#celularCliente').value = '';
+                            document.querySelector('#razonSocial').value = '';
+                            document.querySelector('#nitCliente').value = '';
+                            document.querySelector('#metodoPago').value = '';
                         } else {
                             alert("Hubo un error al procesar el pedido: " + data.message);
                         }

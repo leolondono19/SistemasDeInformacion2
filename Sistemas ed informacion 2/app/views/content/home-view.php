@@ -428,112 +428,106 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const cart = [];
-            const cartCountElement = document.getElementById('cart-count');
-            const cartTableBody = document.querySelector('#cart-items tbody');
-            const cartTotalSpan = document.querySelector('#cart-total');
+        const cart = [];
+        const cartCountElement = document.getElementById('cart-count');
+        const cartTableBody = document.querySelector('#cart-items tbody');
+        const cartTotalSpan = document.querySelector('#cart-total');
 
-            function updateCartTable() {
-                cartTableBody.innerHTML = '';
-                let total = 0;
-                cart.forEach(item => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${item.name}</td>
-                        <td>${item.quantity}</td>
-                        <td>${item.price.toFixed(2)} Bs</td>
-                        <td>${(item.price * item.quantity).toFixed(2)} Bs</td>
-                    `;
-                    cartTableBody.appendChild(row);
-                    total += item.price * item.quantity;
-                });
-                cartTotalSpan.textContent = total.toFixed(2) + ' Bs';
-                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-                cartCountElement.textContent = totalItems;
-            }
-
-            function addToCart(productId, productName, productPrice) {
-                const existingProductIndex = cart.findIndex(item => item.id === productId);
-                if (existingProductIndex > -1) {
-                    cart[existingProductIndex].quantity++;
-                } else {
-                    cart.push({ id: productId, name: productName, price: parseFloat(productPrice), quantity: 1 });
-                }
-                updateCartTable();
-            }
-
-            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-                button.addEventListener('click', () => {
-                    const productId = button.getAttribute('data-product-id');
-                    const productName = button.getAttribute('data-product-name');
-                    const productPrice = button.getAttribute('data-product-price');
-                    addToCart(productId, productName, productPrice);
-                });
+        function updateCartTable() {
+            cartTableBody.innerHTML = '';
+            let total = 0;
+            cart.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.quantity}</td>
+                    <td>${item.price.toFixed(2)} Bs</td>
+                    <td>${(item.price * item.quantity).toFixed(2)} Bs</td>
+                `;
+                cartTableBody.appendChild(row);
+                total += item.price * item.quantity;
             });
+            cartTotalSpan.textContent = total.toFixed(2) + ' Bs';
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCountElement.textContent = totalItems;
+        }
 
-            document.querySelector('#clear-cart').addEventListener('click', () => {
-                cart.length = 0;
-                updateCartTable();
-            });
+        function addToCart(productId, productName, productPrice) {
+            const existingProductIndex = cart.findIndex(item => item.id === productId);
+            if (existingProductIndex > -1) {
+                cart[existingProductIndex].quantity++;
+            } else {
+                cart.push({ id: productId, name: productName, price: parseFloat(productPrice), quantity: 1 });
+            }
+            updateCartTable();
+        }
 
-            document.querySelector('#procederPago').addEventListener('click', () => {
-                const clienteInfo = {
-                    nombre: document.querySelector('#nombreCliente').value,
-                    correo: document.querySelector('#correoCliente').value,
-                    celular: document.querySelector('#celularCliente').value
-                };
-
-                if (!clienteInfo.nombre || !clienteInfo.correo || !clienteInfo.celular) {
-                    alert("Por favor, rellena todos los campos de información del cliente.");
-                    return;
-                }
-
-                if (cart.length === 0) {
-                    alert("El carrito está vacío.");
-                    return;
-                }
-
-                const cartData = cart.map(item => ({
-                    nombre: item.name,
-                    cantidad: item.quantity,
-                    precio: item.price
-                }));
-
-                fetch('app/controllers/procesarPedido.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        cliente: clienteInfo,
-                        carrito: cartData
-                    })
-                })
-                .then(response => response.text()) 
-                .then(text => {
-                    try {
-                        const data = JSON.parse(text);
-                        if (data.success) {
-                            alert("Pedido procesado con éxito.");
-                            cart.length = 0;
-                            updateCartTable();
-                            document.querySelector('#nombreCliente').value = '';
-                            document.querySelector('#correoCliente').value = '';
-                            document.querySelector('#celularCliente').value = '';
-                        } else {
-                            alert("Hubo un error al procesar el pedido: " + data.message);
-                        }
-                    } catch (e) {
-                        alert("Error en la respuesta del servidor: " + text);
-                        console.error('Error:', e);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert("Hubo un error al procesar el pedido.");
-                });
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const productId = button.getAttribute('data-product-id');
+                const productName = button.getAttribute('data-product-name');
+                const productPrice = button.getAttribute('data-product-price');
+                addToCart(productId, productName, productPrice);
             });
         });
+
+        document.querySelector('#clear-cart').addEventListener('click', () => {
+            cart.length = 0;
+            updateCartTable();
+        });
+
+        document.querySelector('#procederPago').addEventListener('click', () => {
+            const clienteInfo = {
+                nombre: document.querySelector('#nombreCliente').value,
+                correo: document.querySelector('#correoCliente').value,
+                celular: document.querySelector('#celularCliente').value
+            };
+
+            if (!clienteInfo.nombre || !clienteInfo.correo || !clienteInfo.celular) {
+                alert("Por favor, rellena todos los campos de información del cliente.");
+                return;
+            }
+
+            if (cart.length === 0) {
+                alert("El carrito está vacío.");
+                return;
+            }
+
+            const cartData = cart.map(item => ({
+                nombre: item.name,
+                cantidad: item.quantity,
+                precio: item.price
+            }));
+
+            fetch('app/controllers/procesarPedido.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    cliente: clienteInfo,
+                    carrito: cartData
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Pedido procesado con éxito.");
+                    cart.length = 0;
+                    updateCartTable();
+                    document.querySelector('#nombreCliente').value = '';
+                    document.querySelector('#correoCliente').value = '';
+                    document.querySelector('#celularCliente').value = '';
+                } else {
+                    alert("Hubo un error al procesar el pedido: " + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("Hubo un error al procesar el pedido.");
+            });
+        });
+    });
 
 
         document.addEventListener('DOMContentLoaded', function() {

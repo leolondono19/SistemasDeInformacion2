@@ -544,12 +544,13 @@
                     nombre: document.querySelector('#nombreCliente').value,
                     correo: document.querySelector('#correoCliente').value,
                     celular: document.querySelector('#celularCliente').value,
-                    razonSocial: document.querySelector('#razonSocial').value,
+                    razon_social: document.querySelector('#razonSocial').value,
                     nit: document.querySelector('#nitCliente').value,
-                    pago: document.querySelector('#metodoPago').value
+                    metodo_pago: document.querySelector('input[name="metodoPago"]:checked') ?  
+                        document.querySelector('input[name="metodoPago"]:checked').value : null
                 };
 
-                if (!clienteInfo.nombre || !clienteInfo.correo || !clienteInfo.celular || !clienteInfo.razonSocial || !clienteInfo.nit || !clienteInfo.pago) {
+                if (!clienteInfo.nombre || !clienteInfo.correo || !clienteInfo.celular || !clienteInfo.razon_social || !clienteInfo.nit || !clienteInfo.metodo_pago) {
                     alert("Por favor, rellena todos los campos de información del cliente.");
                     return;
                 }
@@ -588,7 +589,7 @@
                             document.querySelector('#celularCliente').value = '';
                             document.querySelector('#razonSocial').value = '';
                             document.querySelector('#nitCliente').value = '';
-                            document.querySelector('#metodoPago').value = '';
+                            document.querySelectorAll('input[name="metodoPago"]').forEach(input => input.checked = false);
                         } else {
                             alert("Hubo un error al procesar el pedido: " + data.message);
                         }

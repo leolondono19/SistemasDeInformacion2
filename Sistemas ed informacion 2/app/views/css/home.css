@@ -623,13 +623,14 @@ footer a:hover {
 footer{
     position: relative;
     width: 100%;
-    background: #01b2de;
+    background: #3586ff;
     min-height: 100px;
     padding: 20px 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 165px;
 }
 footer .rrss_icon, footer .menu_footer{
     position: relative;
@@ -704,6 +705,24 @@ footer .onda#onda4{
     bottom: 20px;
     animation: animateWave_02 3s linear infinite;
 }
+@keyframes animateWave{
+    0%{
+        background-position-x: 1000px;
+    }
+    100%{
+        background-position-x: 0px;
+    }
+}
+
+@keyframes animateWave_02{
+    0%{
+        background-position-x: 0px;
+    }
+    100%{
+        background-position-x: 1000px;
+    }
+}
+
 .vision-mision-section {
     display: flex;
     justify-content: space-around;
@@ -737,21 +756,4 @@ footer .onda#onda4{
 .card-vis-mis p {
     font-size: 16px;
     color: #555;
-}
-@keyframes animateWave{
-    0%{
-        background-position-x: 1000px;
-    }
-    100%{
-        background-position-x: 0px;
-    }
-}
-
-@keyframes animateWave_02{
-    0%{
-        background-position-x: 0px;
-    }
-    100%{
-        background-position-x: 1000px;
-    }
 }

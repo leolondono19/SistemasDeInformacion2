@@ -4,13 +4,9 @@
         <form action="<?php echo APP_URL; ?>pedidoBuscar/" method="POST" autocomplete="off">
             <div class="field has-addons">
                 <div class="control is-expanded">
-                    <input class="input" type="text" name="busqueda" placeholder="Buscar por cliente">
+                    
                 </div>
-                <div class="control">
-                    <button class="button is-info">
-                        Buscar
-                    </button>
-                </div>
+                
             </div>
         </form>
     </div>

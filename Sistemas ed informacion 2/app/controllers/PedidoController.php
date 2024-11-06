@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 use app\models\mainModel;
+use app\models\pedidoModel;
 
 class PedidoController extends mainModel{
 
@@ -285,6 +286,68 @@ class PedidoController extends mainModel{
     protected function ultimoIdInsertado(){
         return $this->conectar()->lastInsertId();
     }
+
+    // Método para listar todos los detalles de pedido
+    public function listarTodosLosDetallesPedidoControlador($tipo = 'todos') {
+        $modelo = new pedidoModel();
+    
+        // Realizar consulta en base al tipo de pedido
+        switch ($tipo) {
+            case 'comprobados':
+                $detalles = $modelo->obtenerDetallesPedidoPorEstado('comprobado');
+                break;
+            case 'pendientes':
+                $detalles = $modelo->obtenerDetallesPedidoPorEstado('pendiente');
+                break;
+            case 'completados':
+                $detalles = $modelo->obtenerDetallesPedidoPorEstado('completado');
+                break;
+            default:
+                $detalles = $modelo->obtenerTodosLosDetallesPedido();
+        }
+    
+        $html = '<table class="table is-fullwidth is-striped">';
+        $html .= '<thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Código Pedido</th>
+                        <th>Cantidad</th>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Fecha</th>
+                    </tr>
+                  </thead>
+                  <tbody>';
+    
+        foreach ($detalles as $detalle) {
+            $html .= '<tr>
+                        <td>' . htmlspecialchars($detalle['detalle_id']) . '</td>
+                        <td>' . htmlspecialchars($detalle['codigo_pedido']) . '</td>
+                        <td>' . htmlspecialchars($detalle['cantidad']) . '</td>
+                        <td>' . htmlspecialchars($detalle['producto_nombre']) . '</td>
+                        <td>' . htmlspecialchars(number_format($detalle['precio'], 2)) . '</td>
+                        <td>' . htmlspecialchars($detalle['fecha']) . '</td>
+                      </tr>';
+        }
+    
+        $html .= '</tbody></table>';
+        return $html;
+    }
+    
+    
+    
+    public function mostrarDetallesPedido($pedido) {
+        echo '<table>';
+        echo '<tr><th>ID</th><th>Producto</th><th>Cantidad</th><th>Estado</th></tr>';
+        echo '<tr>';
+        echo '<td>' . $pedido['id'] . '</td>';
+        echo '<td>' . $pedido['producto'] . '</td>';
+        echo '<td>' . $pedido['cantidad'] . '</td>';
+        echo '<td>' . $pedido['estado'] . '</td>';
+        echo '</tr>';
+        echo '</table>';
+    }
+    
 
 }
 ?>

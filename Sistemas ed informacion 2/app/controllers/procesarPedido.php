@@ -2,14 +2,6 @@
 // Ajusta la ruta según la estructura real de tu proyecto
 require_once 'C:/xampp/htdocs/VENTAS/config/server.php';
 
-// Incluir PHPMailer
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'path/to/PHPMailer/src/Exception.php';
-require 'path/to/PHPMailer/src/PHPMailer.php';
-require 'path/to/PHPMailer/src/SMTP.php';
-
 // Obtener datos JSON del cuerpo de la solicitud
 $data = json_decode(file_get_contents('php://input'), true);
 
@@ -61,49 +53,7 @@ try {
 
     // Confirmar transacción
     $conn->commit();
-
-    // Enviar correo electrónico de confirmación
-    $mail = new PHPMailer(true);
-
-    try {
-        // Configuración del servidor SMTP
-        $mail->isSMTP();
-        $mail->Host = 'smtp.example.com'; // Cambia esto por tu servidor SMTP
-        $mail->SMTPAuth = true;
-        $mail->Username = 'tu_correo@example.com'; // Cambia esto por tu correo
-        $mail->Password = 'tu_contraseña'; // Cambia esto por tu contraseña
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'https://api.sendgrid.com/v3/mail/send');
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($emailData));
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Authorization: Bearer TU_API_KEY',
-        'Content-Type: application/json'
-    ]);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-        // Contenido del correo
-        $mail->isHTML(true);
-        $mail->Subject = 'Confirmación de Pedido';
-        $mail->Body = '<h1>Gracias por tu compra, ' . htmlspecialchars($cliente['nombre']) . '!</h1>';
-        $mail->Body .= '<p>Tu pedido ha sido procesado con éxito. Aquí están los detalles:</p>';
-        $mail->Body .= '<ul>';
-        foreach ($carrito as $item) {
-            $mail->Body .= '<li>' . htmlspecialchars($item['nombre']) . ' - Cantidad: ' . $item['cantidad'] . ' - Precio: ' . number_format($item['precio'], 2) . ' Bs</li>';
-        }
-        $mail->Body .= '</ul>';
-        $mail->Body .= '<p>Total: ' . array_reduce($carrito, function($total, $item) {
-            return $total + ($item['precio'] * $item['cantidad']);
-        }, 0) . ' Bs</p>';
-
-        $mail->send();
-        echo json_encode(['success' => true]);
-    } catch (Exception $e) {
-        echo json_encode(['success' => false, 'message' => "El mensaje no pudo ser enviado. Error de correo: {$mail->ErrorInfo}"]);
-    }
+    echo json_encode(['success' => true, 'message' => 'Pedido procesado exitosamente.']);
 } catch (Exception $e) {
     // Revertir transacción en caso de error
     $conn->rollback();

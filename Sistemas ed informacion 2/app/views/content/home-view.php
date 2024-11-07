@@ -43,7 +43,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    
+                    <div id="notification" style="display:none; padding:10px; margin-bottom:10px; background-color:#dff0d8; color:#3c763d; border:1px solid #d6e9c6; border-radius:5px;"></div>
                     <table id="cart-items" class="table table-striped">
                         <thead>
                             <tr>
@@ -51,6 +51,7 @@
                                 <th>Cantidad</th>
                                 <th>Precio Unitario (Bs)</th>
                                 <th>Total (Bs)</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -197,7 +198,7 @@
         </div>
     </div>
 
-    <!-- Paginación -->
+    <!-- Paginación 
     <nav aria-label="Page navigation">
         <ul class="pagination">
             <?php if ($pagina > 1): ?>
@@ -220,7 +221,7 @@
                 </li>
             <?php endif; ?>
         </ul>
-    </nav>
+    </nav>-->
 </div>
 
         <nav aria-label="Página de navegación">
@@ -455,17 +456,32 @@
             const cartCountElement = document.getElementById('cart-count');
             const cartTableBody = document.querySelector('#cart-items tbody');
             const cartTotalSpan = document.querySelector('#cart-total');
+            const notificationElement = document.getElementById('notification');
 
+            function showNotification(message) {
+                notificationElement.textContent = message;
+                notificationElement.style.display = 'block';
+                setTimeout(() => {
+                    notificationElement.style.display = 'none';
+                }, 2000);
+            }
+            
             function updateCartTable() {
                 cartTableBody.innerHTML = '';
                 let total = 0;
-                cart.forEach(item => {
+                cart.forEach((item, index) => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <td>${item.name}</td>
-                        <td>${item.quantity}</td>
+                        
+                        <td>
+                            <img src="./app/views/img/iconos/signo-menos.png" alt="Disminuir" style="cursor:pointer; width:20px;" onclick="decreaseQuantity(${index})">
+                            ${item.quantity}
+                            <img src="./app/views/img/iconos/mas.png" alt="Aumentar" style="cursor:pointer; width:20px;" onclick="increaseQuantity(${index})">
+                        </td>
                         <td>${item.price.toFixed(2)} Bs</td>
                         <td>${(item.price * item.quantity).toFixed(2)} Bs</td>
+                        <td><img src="./app/views/img/iconos/eliminar.png" alt="Eliminar" style="cursor:pointer; width:20px;" onclick="removeFromCart(${index})"></td>
                     `;
                     cartTableBody.appendChild(row);
                     total += item.price * item.quantity;
@@ -479,11 +495,37 @@
                 const existingProductIndex = cart.findIndex(item => item.id === productId);
                 if (existingProductIndex > -1) {
                     cart[existingProductIndex].quantity++;
+                    showNotification(`Se aumentó la cantidad de ${productName}.`);
                 } else {
                     cart.push({ id: productId, name: productName, price: parseFloat(productPrice), quantity: 1 });
+                    showNotification(`${productName} añadido al carrito.`);
                 }
                 updateCartTable();
             }
+
+            window.increaseQuantity = function(index) {
+                cart[index].quantity++;
+                updateCartTable();
+                showNotification(`Se aumentó la cantidad de ${cart[index].name}.`);
+            }
+
+            window.decreaseQuantity = function(index) {
+                if (cart[index].quantity > 1) {
+                    cart[index].quantity--;
+                    updateCartTable();
+                    showNotification(`Se disminuyó la cantidad de ${cart[index].name}.`);
+                } else {
+                    removeFromCart(index);
+                }
+            }
+
+            window.removeFromCart = function(index) {
+                const removedItem = cart[index];
+                cart.splice(index, 1);
+                updateCartTable();
+                showNotification(`Se eliminó ${removedItem.name} del carrito.`);
+            }
+
 
             document.querySelectorAll('.add-to-cart-btn').forEach(button => {
                 button.addEventListener('click', () => {
@@ -497,6 +539,7 @@
             document.querySelector('#clear-cart').addEventListener('click', () => {
                 cart.length = 0;
                 updateCartTable();
+                showNotification("Se vació el carrito.");
             });
 
             document.querySelector('#procederPago').addEventListener('click', () => {

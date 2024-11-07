@@ -17,9 +17,17 @@
 
 		/*----------  Funcion conectar a BD  ----------*/
 		protected function conectar(){
-			$conexion = new PDO("mysql:host=".$this->server.";dbname=".$this->db,$this->user,$this->pass);
-			$conexion->exec("SET CHARACTER SET utf8");
+
+			try {
+				$conexion = new PDO("mysql:host=".$this->server.";dbname=".$this->db, $this->user, $this->pass);
+				/*$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				return $conexion;*/
+				$conexion->exec("SET CHARACTER SET utf8");
 			return $conexion;
+			} catch (PDOException $e) {
+				echo "Error en la conexión: " . $e->getMessage();
+				return null;
+			}
 		}
 
 

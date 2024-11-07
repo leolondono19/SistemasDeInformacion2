@@ -26,7 +26,7 @@ html, body {
 
 
 .header{
-    background-image: url(../fotos/FARMACORP.png);
+    background-image: url(../fotos/FARMACORP.jpg);
     background-size: cover;
     background-position: center;
     height: 400px;
@@ -142,7 +142,6 @@ html, body {
     height: 10rem; /* Ajuste de la altura de las tarjetas de la galería */
     background: var(--background-card); /* Usar la variable de color de fondo de las tarjetas */
     border-radius: 0.5rem;
-    /*border: none;*/
     overflow: hidden;
     box-shadow: 0 5px 12px rgba(0,0,0,0.5);
     transition: transition 0.3s ease-in-out; /* Mejorar la transición */
@@ -187,10 +186,10 @@ html, body {
 }
 
 .navbar-nav .nav-link {
-    color:#ffd301;
+    color:#F3D408;
     /*color: white;(ANTES) /* Color de los enlaces */
     margin-right: 15px;
-    font-size: 30px;
+    font-size: 23px;
     /*font-size: 20px;*/
 }
 
@@ -239,15 +238,15 @@ html, body {
 }
 
 .btn-primary {
-    background-color: #01b2de;
-    border-color: #01b2de;
+    background-color: #5061C5;
+    border-color: #5061C5;
     /*background-color: #007bff;
     border-color: #007bff;*/
 }
 
 .btn-primary:hover {
-    background-color: #08c908;
-    border-color: #c97919;
+    background-color: #5061C5;
+    border-color: #271B7F;
     /*background-color: #0056b3;
     border-color: #004085;*/
 }
@@ -275,7 +274,7 @@ html, body {
 }
 
 .pagination .page-item.disabled .page-link {
-    color: #F0EFEA;
+    color: #BFB6DC;
     pointer-events: none;
 }
 
@@ -364,6 +363,10 @@ html, body {
     font-size: 14px;
     color: #666;
   }
+  .info-item:hover {
+    /*transform: translateY(-10px);*/
+    box-shadow: 0 8px 16px rgba(39, 27, 127, 0.2);
+}
 
 
 /*promocion 7porciento*/
@@ -448,13 +451,13 @@ html, body {
 
 /* Estilos para las redes sociales en la sección de contacto */
 #contactos .btn-primary {
-    background-color: #0056b3;
+    background-color: #5061C5;
     border: none;
     margin: 5px;
 }
 
 #contactos .btn-primary:hover {
-    background-color: #004085;
+    background-color: #5061C5;
 }
 /* Estilos adicionales para el formulario de contacto */
 .contact-form input, .contact-form textarea {
@@ -468,7 +471,7 @@ html, body {
 }*/
 
 .contact-form button:hover {
-    background-color: #0056b3;
+    background-color: #5061C5;
 }
 
 
@@ -478,7 +481,7 @@ html, body {
 /* Estilos generales para la sección de contacto */
 #contactos {
     background-color: #f9f9f9;
-    padding: 50px 0;
+    padding: 25px 0;
     border-radius: 8px;
 }
 
@@ -508,7 +511,7 @@ h2, h3 {
 .input-square:focus {
     border-color: #5061C5; /* Color de borde cuando se selecciona el campo */
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Brillo en el foco */
+    box-shadow: 0 0 5px rgba(39, 27, 127, 0.5); /* Brillo en el foco */
 }
 
 /* Estilos personalizados para el botón */
@@ -673,12 +676,12 @@ footer p{
 }
 footer .onda{
     position: absolute;
-    top: -100px;
+    top: -80px;
     left: 0;
     width: 100%;
-    height: 100px;
+    height: 80px;
     background: url(../fotos/WAVE.png);
-    background-size: 1000px 100px;
+    background-size: 1000px 80px;
 }
 footer .onda#onda1{
     z-index: 1000;

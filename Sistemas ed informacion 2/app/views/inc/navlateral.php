@@ -45,6 +45,42 @@
 							<i class="fas fa-cash-register fa-fw"></i>
 						</div>
 						<div class="navLateral-body-cr">
+							DASHBOARDS
+						</div>
+						<span class="fas fa-chevron-down"></span>
+					</a>
+					<ul class="full-width menu-principal sub-menu-options">
+						<li class="full-width">
+							<a href="<?php echo APP_URL; ?>Dashboards1/" class="full-width">
+								<div class="navLateral-body-cl">
+									<i class="fas fa-cash-register fa-fw"></i>
+								</div>
+								<div class="navLateral-body-cr">
+									Dashboards 1
+								</div>
+							</a>
+						</li>
+						<li class="full-width">
+							<a href="<?php echo APP_URL; ?>PruebasDashboard/" class="full-width">
+								<div class="navLateral-body-cl">
+									<i class="fas fa-clipboard-list fa-fw"></i>
+								</div>
+								<div class="navLateral-body-cr">
+									Pruebas Dashboards
+								</div>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<li class="full-width divider-menu-h"></li>
+
+				<li class="full-width">
+					<a href="#" class="full-width btn-subMenu">
+						<div class="navLateral-body-cl">
+							<i class="fas fa-cash-register fa-fw"></i>
+						</div>
+						<div class="navLateral-body-cr">
 							CAJAS
 						</div>
 						<span class="fas fa-chevron-down"></span>

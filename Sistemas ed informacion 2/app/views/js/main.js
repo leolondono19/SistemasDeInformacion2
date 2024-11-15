@@ -72,3 +72,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Functions to open and close a modal
+
+  // Función para cargar la página con AJAX
+  function loadPage(page) {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', 'home-view.php?pagina=' + page, true);
+      xhr.onload = function() {
+          if (this.status === 200) {
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(this.responseText, 'text/html');
+              const newContent = doc.querySelector('#perfumes').innerHTML;
+              document.querySelector('#perfumes').innerHTML = newContent;
+
+              const newPagination = doc.querySelector('.pagination').innerHTML;
+              document.querySelector('.pagination').innerHTML = newPagination;
+          }
+      };
+      xhr.send();
+  }
+
+  // Añadir evento a los enlaces de paginación
+  document.querySelectorAll('.pagination a').forEach(link => {
+      link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const page = this.getAttribute('data-page');
+          loadPage(page);
+      });
+  });
+});

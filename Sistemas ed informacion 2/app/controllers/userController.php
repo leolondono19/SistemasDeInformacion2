@@ -19,6 +19,7 @@
 
 		    $caja=$this->limpiarCadena($_POST['usuario_caja']);
 
+			$fecha_registro = date('Y-m-d H:i:s');
 
 		    # Verificando campos obligatorios #
 		    if($nombre=="" || $apellido=="" || $usuario=="" || $clave1=="" || $clave2==""){
@@ -330,6 +331,7 @@
 		            <thead>
 		                <tr>
 		                    <th class="has-text-centered">#</th>
+							<th class="has-text-centered">Fecha de Registro</th>
 		                    <th class="has-text-centered">Nombre</th>
 		                    <th class="has-text-centered">Usuario</th>
 		                    <th class="has-text-centered">Email</th>
@@ -348,6 +350,7 @@
 					$tabla.='
 						<tr class="has-text-centered" >
 							<td>'.$contador.'</td>
+							<td>'.$rows['fecha_registro'].'</td>
 							<td>'.$rows['usuario_nombre'].' '.$rows['usuario_apellido'].'</td>
 							<td>'.$rows['usuario_usuario'].'</td>
 							<td>'.$rows['usuario_email'].'</td>

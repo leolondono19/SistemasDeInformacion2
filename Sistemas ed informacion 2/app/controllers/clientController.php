@@ -20,6 +20,7 @@
 
 		    $telefono=$this->limpiarCadena($_POST['cliente_telefono']);
 		    $email=$this->limpiarCadena($_POST['cliente_email']);
+			$fecha_registro = date('Y-m-d H:i:s');
 
 		    # Verificando campos obligatorios #
             if($numero_documento=="" || $nombre=="" || $apellido=="" || $provincia=="" || $ciudad=="" || $direccion==""){
@@ -278,6 +279,7 @@
 		            <thead>
 		                <tr>
 		                    <th class="has-text-centered">#</th>
+							<th class="has-text-centered">Fecha de Registro</th>
 		                    <th class="has-text-centered">Documento</th>
 		                    <th class="has-text-centered">Nombre</th>
 		                    <th class="has-text-centered">Email</th>
@@ -295,6 +297,7 @@
 					$tabla.='
 						<tr class="has-text-centered" >
 							<td>'.$contador.'</td>
+							<td>'.$rows['fecha_registro'].'</td>
 							<td>'.$rows['cliente_tipo_documento'].': '.$rows['cliente_numero_documento'].'</td>
 							<td>'.$rows['cliente_nombre'].' '.$rows['cliente_apellido'].'</td>
 							<td>'.$rows['cliente_email'].'</td>

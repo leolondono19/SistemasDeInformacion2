@@ -13,7 +13,7 @@
             title="parcial3" 
             width="1024" 
             height="1060" 
-            src="https://app.powerbi.com/view?r=eyJrIjoiYWMwMDkzZGQtNGVmOS00MzY1LTg4MTEtYWZkNWMxYjVmYTExIiwidCI6ImNjMjg2MzNmLTEyYjgtNDZjYi1iYzE1LTk1MWRhZTIzOWI0ZCIsImMiOjR9" 
+            src="https://app.powerbi.com/view?r=eyJrIjoiY2ViZjY2NzQtNWQ3ZC00MzQyLWJkZjItZGY3M2ZiYjg1MGEwIiwidCI6ImNjMjg2MzNmLTEyYjgtNDZjYi1iYzE1LTk1MWRhZTIzOWI0ZCIsImMiOjR9" 
             frameborder="0" 
             allowFullScreen="true">
         </iframe>

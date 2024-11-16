@@ -74,32 +74,51 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Functions to open and close a modal
-
   // Función para cargar la página con AJAX
-  function loadPage(page) {
+  function loadPage(url) {
+      console.log("Cargando página desde:", url);
       const xhr = new XMLHttpRequest();
-      xhr.open('GET', 'home-view.php?pagina=' + page, true);
-      xhr.onload = function() {
+      xhr.open('GET', url, true);
+      xhr.onload = function () {
           if (this.status === 200) {
               const parser = new DOMParser();
               const doc = parser.parseFromString(this.responseText, 'text/html');
-              const newContent = doc.querySelector('#perfumes').innerHTML;
-              document.querySelector('#perfumes').innerHTML = newContent;
 
-              const newPagination = doc.querySelector('.pagination').innerHTML;
-              document.querySelector('.pagination').innerHTML = newPagination;
+              // Encuentra el contenedor principal actualizado de la respuesta
+              const currentContainer = document.querySelector('.container.pb-6.pt-6'); // Clase del contenedor de productos
+              const newContent = doc.querySelector('.container.pb-6.pt-6'); // Nueva clase en la página cargada
+
+              if (newContent && currentContainer) {
+                  // Reemplaza el contenido del contenedor actual con el nuevo contenido
+                  currentContainer.innerHTML = newContent.innerHTML;
+              } else {
+                  console.error("Contenedor principal no encontrado en la respuesta o en la página actual.");
+              }
+
+              // Actualizar paginación si está presente
+              const currentPagination = document.querySelector('.pagination');
+              const newPagination = doc.querySelector('.pagination');
+              if (newPagination && currentPagination) {
+                  currentPagination.innerHTML = newPagination.innerHTML;
+              }
+          } else {
+              console.error("Error al cargar la página:", this.status);
           }
       };
       xhr.send();
   }
 
-  // Añadir evento a los enlaces de paginación
-  document.querySelectorAll('.pagination a').forEach(link => {
-      link.addEventListener('click', function(e) {
+  // Añadir eventos a los enlaces de paginación
+  document.addEventListener('click', function (e) {
+      if (e.target.matches('.pagination a')) {
           e.preventDefault();
-          const page = this.getAttribute('data-page');
-          loadPage(page);
-      });
+          const url = e.target.getAttribute('href'); // Usamos el href directamente para soportar diferentes estructuras de URL
+          if (url) {
+              loadPage(url);
+          } else {
+              console.error("URL no encontrada en el enlace de paginación.");
+          }
+      }
   });
 });
+

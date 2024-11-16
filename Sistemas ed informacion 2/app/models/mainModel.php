@@ -167,9 +167,9 @@
 	            ';
 	        }else{
 	            $tabla.='
-	            <a class="pagination-previous" href="'.$url.($pagina-1).'/"><i class="fas fa-arrow-alt-circle-left"></i> &nbsp; Anterior</a>
+	            <a class="pagination-previous" href="' . $url . ($pagina - 1) . '/" data-page="' . ($pagina - 1) . '"><i class="fas fa-arrow-alt-circle-left"></i> &nbsp; Anterior</a>
 	            <ul class="pagination-list">
-	                <li><a class="pagination-link" href="'.$url.'1/">1</a></li>
+	                <li><a class="pagination-link" href="' . $url . '1/" data-page="1">1</a></li>
 	                <li><span class="pagination-ellipsis">&hellip;</span></li>
 	            ';
 	        }
@@ -183,9 +183,9 @@
 	            }
 
 	            if($pagina==$i){
-	                $tabla.='<li><a class="pagination-link is-current" href="'.$url.$i.'/">'.$i.'</a></li>';
+	                $tabla .= '<li><a class="pagination-link is-current" href="' . $url . $i . '/" data-page="' . $i . '">' . $i . '</a></li>';
 	            }else{
-	                $tabla.='<li><a class="pagination-link" href="'.$url.$i.'/">'.$i.'</a></li>';
+	                $tabla .= '<li><a class="pagination-link" href="' . $url . $i . '/" data-page="' . $i . '">' . $i . '</a></li>';
 	            }
 
 	            $ci++;
@@ -200,9 +200,9 @@
 	        }else{
 	            $tabla.='
 	                <li><span class="pagination-ellipsis">&hellip;</span></li>
-	                <li><a class="pagination-link" href="'.$url.$numeroPaginas.'/">'.$numeroPaginas.'</a></li>
+	                <li><a class="pagination-link" href="' . $url . $numeroPaginas . '/" data-page="' . $numeroPaginas . '">' . $numeroPaginas . '</a></li>
 	            </ul>
-	            <a class="pagination-next" href="'.$url.($pagina+1).'/"><i class="fas fa-arrow-alt-circle-right"></i> &nbsp; Siguiente</a>
+	            <a class="pagination-next" href="' . $url . ($pagina + 1) . '/" data-page="' . ($pagina + 1) . '"><i class="fas fa-arrow-alt-circle-right"></i> &nbsp; Siguiente</a>
 	            ';
 	        }
 

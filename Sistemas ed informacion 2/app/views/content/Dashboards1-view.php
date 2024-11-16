@@ -10,10 +10,10 @@
 <body>
     <div class="container is-fluid">
         <iframe 
-            title="prueba1" 
-            width="100%" 
+            title="parcial3" 
+            width="1024" 
             height="1060" 
-            src="https://app.powerbi.com/view?r=eyJrIjoiNWY5ZWViMWMtMjkzNC00OTFlLThhNzEtZmRkNjI4MDk4ZTdkIiwidCI6ImNjMjg2MzNmLTEyYjgtNDZjYi1iYzE1LTk1MWRhZTIzOWI0ZCIsImMiOjR9" 
+            src="https://app.powerbi.com/view?r=eyJrIjoiYWMwMDkzZGQtNGVmOS00MzY1LTg4MTEtYWZkNWMxYjVmYTExIiwidCI6ImNjMjg2MzNmLTEyYjgtNDZjYi1iYzE1LTk1MWRhZTIzOWI0ZCIsImMiOjR9" 
             frameborder="0" 
             allowFullScreen="true">
         </iframe>

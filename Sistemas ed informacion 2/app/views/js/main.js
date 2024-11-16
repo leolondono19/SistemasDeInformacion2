@@ -122,3 +122,33 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// Function to add item to cart
+function addToCart(productId) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push(productId);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartCount();
+}
+
+// Function to update cart count
+function updateCartCount() {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  document.getElementById('cart-count').innerText = cart.length;
+}
+
+// Call updateCartCount on page load to maintain cart count
+document.addEventListener('DOMContentLoaded', updateCartCount);
+
+document.addEventListener('DOMContentLoaded', function() {
+  updateCartCount();
+  loadCartItems();
+});
+
+function loadCartItems() {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  // Logic to display cart items on the page
+  // For example, you can loop through the cart array and display each item
+  cart.forEach(productId => {
+      // Add code to display each product in the cart
+  });
+}

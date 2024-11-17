@@ -236,47 +236,46 @@
         </div>
     </div>
 
-    <!-- Paginación 
-    <nav aria-label="Page navigation">
-        <ul class="pagination">
-            <?php if ($pagina > 1): ?>
-                <li class="page-item">
-                    <a class="page-link" href="?pagina=<?= $pagina - 1 ?>" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-            <?php endif; ?>
-            <?php for ($i = 1; $i <= $totalPaginas; $i++): ?>
-                <li class="page-item <?= $i == $pagina ? 'active' : '' ?>">
-                    <a class="page-link" href="?pagina=<?= $i ?>"><?= $i ?></a>
-                </li>
-            <?php endfor; ?>
-            <?php if ($pagina < $totalPaginas): ?>
-                <li class="page-item">
-                    <a class="page-link" href="?pagina=<?= $pagina + 1 ?>" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            <?php endif; ?>
-        </ul>
-    </nav>-->
-</div>
+    <!-- paginación --> 
+<nav aria-label="Página de navegación">
+    <ul class="pagination justify-content-center">
+        <!-- Botón de Anterior -->
+        <li class="page-item <?= $pagina <= 1 ? 'disabled' : '' ?>">
+            <a class="page-link" href="?pagina=<?= max(1, $pagina - 1) ?>#perfumes" aria-label="Anterior">Anterior</a>
+        </li>
 
-        <nav aria-label="Página de navegación">
-            <ul class="pagination justify-content-center">
-                <li class="page-item <?= $pagina <= 1 ? 'disabled' : '' ?>">
-                    <a class="page-link" href="?pagina=<?= max(1, $pagina - 1) ?>">Anterior</a>
-                </li>
-                <?php for ($i = 1; $i <= $totalPaginas; $i++): ?>
-                    <li class="page-item <?= $pagina == $i ? 'active' : '' ?>">
-                        <a class="page-link" href="?pagina=<?= $i ?>"><?= $i ?></a>
-                    </li>
-                <?php endfor; ?>
-                <li class="page-item <?= $pagina >= $totalPaginas ? 'disabled' : '' ?>">
-                    <a class="page-link" href="?pagina=<?= min($totalPaginas, $pagina + 1) ?>">Siguiente</a>
-                </li>
-            </ul>
-        </nav>
+        <!-- Páginas numeradas -->
+        <?php 
+        $maxLinks = 7; // Máximo número de páginas a mostrar
+        $startPage = max(1, $pagina - floor($maxLinks / 2)); // Inicial
+        $endPage = min($totalPaginas, $pagina + floor($maxLinks / 2)); // Final
+        
+        // Ajustar si hay un espacio en blanco antes de la primera página
+        if ($startPage > 1) {
+            echo '<li class="page-item"><a class="page-link" href="?pagina=1#perfumes">1</a></li>';
+            echo '<li class="page-item disabled"><span class="page-link">...</span></li>';
+        }
+
+        // Mostrar las páginas dentro del rango
+        for ($i = $startPage; $i <= $endPage; $i++) {
+            echo '<li class="page-item ' . ($pagina == $i ? 'active' : '') . '">
+                    <a class="page-link" href="?pagina=' . $i . '#perfumes">' . $i . '</a>
+                  </li>';
+        }
+
+        // Ajustar si hay un espacio en blanco después de la última página
+        if ($endPage < $totalPaginas) {
+            echo '<li class="page-item disabled"><span class="page-link">...</span></li>';
+            echo '<li class="page-item"><a class="page-link" href="?pagina=' . $totalPaginas . '#perfumes">' . $totalPaginas . '</a></li>';
+        }
+        ?>
+
+        <!-- Botón de Siguiente -->
+        <li class="page-item <?= $pagina >= $totalPaginas ? 'disabled' : '' ?>">
+            <a class="page-link" href="?pagina=<?= min($totalPaginas, $pagina + 1) ?>#perfumes" aria-label="Siguiente">Siguiente</a>
+        </li>
+    </ul>
+</nav>
 
         <!-- Sección de Carrusel de Marcas -->
         <section id="carousel-marcas" class="text-center mt-5">

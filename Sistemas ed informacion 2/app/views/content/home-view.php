@@ -8,6 +8,7 @@
 </head>
 <body>
     <!-- Header -->
+    
     <header class="header">
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="#">FARMACORP</a>
@@ -489,7 +490,7 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const cart = [];
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
             const cartCountElement = document.getElementById('cart-count');
             const cartTableBody = document.querySelector('#cart-items tbody');
             const cartTotalSpan = document.querySelector('#cart-total');
@@ -502,7 +503,7 @@
                     notificationElement.style.display = 'none';
                 }, 2000);
             }
-            
+
             function updateCartTable() {
                 cartTableBody.innerHTML = '';
                 let total = 0;
@@ -510,7 +511,6 @@
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <td>${item.name}</td>
-                        
                         <td>
                             <img src="./app/views/img/iconos/signo-menos.png" alt="Disminuir" style="cursor:pointer; width:20px;" onclick="decreaseQuantity(${index})">
                             ${item.quantity}
@@ -526,6 +526,7 @@
                 cartTotalSpan.textContent = total.toFixed(2) + ' Bs';
                 const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
                 cartCountElement.textContent = totalItems;
+                localStorage.setItem('cart', JSON.stringify(cart));
             }
 
             function addToCart(productId, productName, productPrice) {
@@ -562,11 +563,11 @@
                 updateCartTable();
                 showNotification(`Se eliminó ${removedItem.name} del carrito.`);
             }
+
             // Expone las funciones para el uso en los atributos `onclick` de los elementos
             window.increaseQuantity = increaseQuantity;
             window.decreaseQuantity = decreaseQuantity;
             window.removeFromCart = removeFromCart;
-
 
             document.querySelectorAll('.add-to-cart-btn').forEach(button => {
                 button.addEventListener('click', () => {
@@ -592,7 +593,6 @@
                     nit: document.querySelector('#nitCliente').value,
                     metodo_pago: document.querySelector('input[name="metodoPago"]:checked') ?  
                         document.querySelector('input[name="metodoPago"]:checked').value : null
-                
                 };
 
                 if (!clienteInfo.nombre || !clienteInfo.correo || !clienteInfo.celular || !clienteInfo.razonSocial || !clienteInfo.nit || !clienteInfo.metodo_pago) {
@@ -648,6 +648,9 @@
                     alert("Hubo un error al procesar el pedido.");
                 });
             });
+
+            // Load cart items on page load
+            updateCartTable();
         });
 
 

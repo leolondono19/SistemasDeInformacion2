@@ -1,55 +1,54 @@
-/* Enviar formularios via AJAX */
-const formularios_ajax=document.querySelectorAll(".FormularioAjax");
+const formularios_ajax = document.querySelectorAll(".FormularioAjax");
 
-formularios_ajax.forEach(formularios => {
-
-    formularios.addEventListener("submit",function(e){
-        
+formularios_ajax.forEach(formulario => {
+    formulario.addEventListener("submit", function (e) {
         e.preventDefault();
 
         Swal.fire({
             title: '¿Estás seguro?',
-            text: "Quieres realizar la acción solicitada",
+            text: "¿Quieres realizar la acción solicitada?",
             icon: 'question',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, realizar',
+            confirmButtonText: 'Sí, realizar',
             cancelButtonText: 'No, cancelar'
         }).then((result) => {
-            if (result.isConfirmed){
+            if (result.isConfirmed) {
+                const action = this.getAttribute("action");
+                const method = this.getAttribute("method");
+                const formData = new FormData(this);
 
-                let data = new FormData(this);
-                let method=this.getAttribute("method");
-                let action=this.getAttribute("action");
-
-                let encabezados= new Headers();
-
-                let config={
+                const config = {
                     method: method,
-                    headers: encabezados,
-                    mode: 'cors',
-                    cache: 'no-cache',
-                    body: data
+                    body: formData
                 };
 
-                fetch(action,config)
-                .then(respuesta => respuesta.json())
-                .then(respuesta =>{ 
-                    return alertas_ajax(respuesta);
-                });
+                fetch(action, config)
+                    .then(respuesta => {
+                        if (!respuesta.ok) {
+                            throw new Error(`Error HTTP: ${respuesta.status}`);
+                        }
+                        return respuesta.json();
+                    })
+                    .then(respuesta => {
+                        alertas_ajax(respuesta);
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error inesperado",
+                            text: "Ocurrió un error. Revisa la consola para más detalles."
+                        });
+                    });
             }
         });
-
     });
-
 });
 
-
-
-function alertas_ajax(alerta){
-    if(alerta.tipo=="simple"){
-
+function alertas_ajax(alerta) {
+    if (alerta.tipo == "simple") {
         Swal.fire({
             icon: alerta.icono,
             title: alerta.titulo,
@@ -57,47 +56,42 @@ function alertas_ajax(alerta){
             confirmButtonText: 'Aceptar'
         });
 
-    }else if(alerta.tipo=="recargar"){
-
+    } else if (alerta.tipo == "recargar") {
         Swal.fire({
             icon: alerta.icono,
             title: alerta.titulo,
             text: alerta.texto,
             confirmButtonText: 'Aceptar'
         }).then((result) => {
-            if(result.isConfirmed){
+            if (result.isConfirmed) {
                 location.reload();
             }
         });
 
-    }else if(alerta.tipo=="limpiar"){
-
+    } else if (alerta.tipo == "limpiar") {
         Swal.fire({
             icon: alerta.icono,
             title: alerta.titulo,
             text: alerta.texto,
             confirmButtonText: 'Aceptar'
         }).then((result) => {
-            if(result.isConfirmed){
+            if (result.isConfirmed) {
                 document.querySelector(".FormularioAjax").reset();
             }
         });
 
-    }else if(alerta.tipo=="redireccionar"){
-        window.location.href=alerta.url;
+    } else if (alerta.tipo == "redireccionar") {
+        window.location.href = alerta.url;
     }
 }
 
-
-
-/* Boton cerrar sesion */
-let btn_exit=document.querySelectorAll(".btn-exit");
+/* Botón cerrar sesión */
+const btn_exit = document.querySelectorAll(".btn-exit");
 
 btn_exit.forEach(exitSystem => {
-    exitSystem.addEventListener("click", function(e){
-
+    exitSystem.addEventListener("click", function (e) {
         e.preventDefault();
-        
+
         Swal.fire({
             title: '¿Quieres salir del sistema?',
             text: "La sesión actual se cerrará y saldrás del sistema",
@@ -105,14 +99,13 @@ btn_exit.forEach(exitSystem => {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, salir',
+            confirmButtonText: 'Sí, salir',
             cancelButtonText: 'Cancelar'
         }).then((result) => {
             if (result.isConfirmed) {
-                let url=this.getAttribute("href");
-                window.location.href=url;
+                const url = this.getAttribute("href");
+                window.location.href = url;
             }
         });
-
     });
 });

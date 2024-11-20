@@ -6,6 +6,7 @@ use app\models\pedidoModel;
 
 class PedidoController extends mainModel{
 
+
     /*----------  Controlador registrar pedido  ----------*/
     public function registrarPedidoControlador(){
 
@@ -145,8 +146,6 @@ class PedidoController extends mainModel{
                         <td>' . $rows['nombre_cliente'] . '</td>
                         <td>' . $rows['correo_cliente'] . '</td>
                         <td>' . $rows['celular_cliente'] . '</td>
-
-                        <!-- Columna de Estado con el formulario para actualizar -->
                         <td>
                             <form class="FormularioAjax" action="' . APP_URL . 'app/ajax/pedidoAjax.php" method="POST" autocomplete="off">
                                 <input type="hidden" name="modulo_pedido" value="actualizar">
@@ -163,11 +162,7 @@ class PedidoController extends mainModel{
                                 </button>
                             </form>
                         </td>
-
-                        <!-- Columna de Método Pago -->
                         <td>' . $rows['metodo_pago'] . '</td>
-
-                        <!-- Columna de Eliminar -->
                         <td>
                             <form class="FormularioAjax" action="' . APP_URL . 'app/ajax/pedidoAjax.php" method="POST" autocomplete="off">
                                 <input type="hidden" name="modulo_pedido" value="eliminar">
@@ -198,83 +193,40 @@ class PedidoController extends mainModel{
 
 
     /*----------  Controlador actualizar estado del pedido  ----------*/
-    public function actualizarPedidoControlador(){
-        // Verificar que se hayan enviado los datos necesarios
-        if(!isset($_POST['pedido_id']) || !isset($_POST['estado'])){
-            $alerta = [
+    public function actualizarPedidoControlador() {
+        $pedido_id = isset($_POST['pedido_id']) ? $_POST['pedido_id'] : null;
+        $estado = isset($_POST['estado']) ? $_POST['estado'] : null;
+    
+        if (is_null($pedido_id) || is_null($estado)) {
+            return json_encode([
                 "tipo" => "simple",
                 "titulo" => "Error",
-                "texto" => "Datos incompletos para actualizar el pedido.",
+                "texto" => "Datos incompletos. No se pudo actualizar el pedido.",
                 "icono" => "error"
-            ];
-            return json_encode($alerta);
-            exit();
+            ]);
         }
-
-        # Almacenando datos
-        $pedido_id = $this->limpiarCadena($_POST['pedido_id']);
-        $estado = $this->limpiarCadena($_POST['estado']);
-
-        # Verificar que el pedido exista
-        $datos = $this->ejecutarConsulta("SELECT * FROM pedido WHERE pedido_id='$pedido_id'");
-        if($datos->rowCount() <= 0){
-            $alerta = [
-                "tipo" => "simple",
-                "titulo" => "Error",
-                "texto" => "No se encontró el pedido en el sistema.",
-                "icono" => "error"
-            ];
-            return json_encode($alerta);
-            exit();
-        } else {
-            $datos = $datos->fetch();
-        }
-
-        # Validar que el estado sea uno de los permitidos
-        $estados_permitidos = ['pendiente', 'comprobado', 'completado'];
-        if(!in_array($estado, $estados_permitidos)){
-            $alerta = [
-                "tipo" => "simple",
-                "titulo" => "Error",
-                "texto" => "El estado seleccionado no es válido.",
-                "icono" => "error"
-            ];
-            return json_encode($alerta);
-            exit();
-        }
-
-        # Actualizar el estado del pedido
+    
+        // Preparar datos para actualizar
         $pedido_datos_up = [
-            [
-                "campo_nombre" => "estado",
-                "campo_marcador" => ":Estado",
-                "campo_valor" => $estado
-            ]
+            "estado" => $estado
         ];
-
-        $condicion = [
-            "condicion_campo" => "pedido_id",
-            "condicion_marcador" => ":ID",
-            "condicion_valor" => $pedido_id
-        ];
-
-        if($this->actualizarDatos("pedido", $pedido_datos_up, $condicion)){
-            $alerta = [
+        $condicion = "pedido_id='$pedido_id'";
+    
+        if ($this->actualizarDatos("pedido", $pedido_datos_up, $condicion)) {
+            return json_encode([
                 "tipo" => "recargar",
                 "titulo" => "Pedido Actualizado",
-                "texto" => "El estado del pedido ha sido actualizado correctamente.",
+                "texto" => "El estado del pedido se actualizó correctamente.",
                 "icono" => "success"
-            ];
+            ]);
         } else {
-            $alerta = [
+            return json_encode([
                 "tipo" => "simple",
                 "titulo" => "Error",
-                "texto" => "No se pudo actualizar el estado del pedido. Por favor, intente nuevamente.",
+                "texto" => "No se pudo actualizar el estado del pedido. Inténtelo nuevamente.",
                 "icono" => "error"
-            ];
+            ]);
         }
-
-        return json_encode($alerta);
     }
 
     /*----------  Controlador eliminar pedido  ----------*/

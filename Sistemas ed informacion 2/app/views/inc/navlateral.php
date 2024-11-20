@@ -60,16 +60,6 @@
 								</div>
 							</a>
 						</li>
-						<li class="full-width">
-							<a href="<?php echo APP_URL; ?>PruebasDashboard/" class="full-width">
-								<div class="navLateral-body-cl">
-									<i class="fas fa-clipboard-list fa-fw"></i>
-								</div>
-								<div class="navLateral-body-cr">
-									Pruebas Dashboards
-								</div>
-							</a>
-						</li>
 					</ul>
 				</li>
 
